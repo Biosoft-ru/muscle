@@ -1,0 +1,9 @@
+users:
+  queries:
+  - All records:
+      invisible: true
+  operations:
+  - Login:
+      roles: Guest
+      type: Groovy
+      file: users.BiostoreLogin.groovy

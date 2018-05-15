@@ -1,0 +1,23 @@
+ organisms:
+   type: dictionary
+   displayName: Organisms
+   order: '10'
+   besql: true
+   primaryKey: ID
+   scheme:
+     columns:
+     - ID:
+         type: KEYTYPE
+         primaryKey: true
+     - title:
+         type: VARCHAR(100)
+   queries:
+   - All records:
+       defaultView: true
+       type: 1D
+       roles: '@AllRoles'
+       code: |-
+           SELECT
+             o.ID AS "___ID",
+             o.title AS "Title"
+           FROM organisms o

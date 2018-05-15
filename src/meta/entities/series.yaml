@@ -1,0 +1,59 @@
+series:
+  type: table
+  displayName: Series
+  order: '10'
+  besql: true
+  primaryKey: ID
+  scheme:
+    columns:
+    - ID:
+        type: KEYTYPE
+        autoIncrement: true
+        primaryKey: true
+    - title:
+        type: VARCHAR(100)
+    - organism:
+        type: KEYTYPE
+        reference: organism
+  queries:
+  - All records:
+      defaultView: true
+      type: 1D
+      roles: '@AllRoles'
+      operations:
+      - AddRemoveCategory
+      - Delete
+      - Insert
+      - Edit
+      - Filter
+      code: |-
+          SELECT DISTINCT
+            s.ID AS "___ID",
+            o.title AS "Organism;<quick visible='false' />",
+            s.title AS "Title"
+          FROM series s
+          LEFT JOIN organisms o ON o.id = s.organism
+  operations:
+  - Insert:
+      type: Groovy
+      roles: Annotator
+      file: series.InsertSerie.groovy
+  - Edit:
+      records: 1
+      type: Groovy
+      roles: Annotator
+      file: series.EditSerie.groovy
+  - Delete:
+      records: 2
+      layout: '{"type":"modalForm"}'
+      type: Groovy
+      roles: Annotator
+      file: series.DeleteSerie.groovy
+  - AddRemoveCategory:
+      records: 2
+      roles: Annotator
+      code: com.developmentontheedge.be5.modules.core.operations.categories.AddRemoveCategory
+  - Filter:
+      roles: Administrator
+      layout: '{"type":"modalForm"}'
+      code: com.developmentontheedge.be5.operations.FilterOperation

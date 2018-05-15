@@ -1,0 +1,10 @@
+_welcome_:
+  type: table
+  displayName: Welcome
+  order: '0'
+  primaryKey: dummy
+  queries:
+  - All records:
+      type: static
+      roles: '@AllRoles'
+      value: welcome.be

@@ -1,0 +1,40 @@
+ru:
+  entities:
+  - index:
+    - topics: page
+      entries:
+      - title: Muscle db
+      - description: Muscle DB application
+  - _homepage_:
+    - topics: displayName
+      entries:
+      - homepage: Главная
+  - _welcome_:
+    - topics: displayName
+      entries:
+      - Welcome: Добро пожаловать
+  - _logout_:
+    - topics: displayName
+      entries:
+      - Logout: Выход
+  - users:
+    - topics: displayName
+      entries:
+      - Logout: Пользователи
+    - topics: viewName
+      entries:
+      - Login: Вход
+  - query.jsp:
+    - topics: page
+      entries:
+      - 'no': нет
+      - 'yes': да
+  - testtable:
+    - topics: operationName
+      entries:
+      - Delete: Удалить
+      - Edit: Редактировать
+      - Insert: Добавить
+    - topics: viewName
+      entries:
+      - All records: Все записи

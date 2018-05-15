@@ -1,0 +1,20 @@
+muscle:
+  features: logging
+  l10n: ru
+  projectFileStructure: {}
+  modules:
+  - core:
+      entities:
+      - _logout_
+      - users
+      - categories
+  application:
+  - _welcome_
+  - series
+  - organisms
+  scripts:
+  - data
+  - Post-db
+  - dictionaries
+  includes:
+  - common

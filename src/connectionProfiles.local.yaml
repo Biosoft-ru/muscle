@@ -1,0 +1,10 @@
+connectionProfiles:
+  profiles:
+    local:
+      connectionUrl: jdbc:postgresql://localhost:5432/muscle
+      username: muscle
+      password: muscle
+    uuinnk_local:
+      connectionUrl: jdbc:postgresql://localhost:5432/muscle
+      username: postgres
+      password: pg
