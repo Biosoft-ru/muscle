@@ -2,13 +2,13 @@ package ru.biosoft.muscle;
 
 import com.developmentontheedge.be5.ServerModule;
 import com.developmentontheedge.be5.modules.core.CoreModule;
+import com.developmentontheedge.be5.servlet.Be5GuiceServletContextListener;
 import com.developmentontheedge.be5.servlet.TemplateModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.google.inject.servlet.GuiceServletContextListener;
 
 
-public class MuscleServletConfig extends GuiceServletContextListener
+public class MuscleServletConfig extends Be5GuiceServletContextListener
 {
     @Override
     protected Injector getInjector()
