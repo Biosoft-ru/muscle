@@ -8,6 +8,8 @@ muscle:
       - _logout_
       - users
       - categories
+  - system:
+      entities: []
   application:
   - _welcome_
   - series
