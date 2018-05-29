@@ -4,8 +4,8 @@ import com.developmentontheedge.be5.api.helpers.UserHelper
 import javax.inject.Inject
 import com.developmentontheedge.be5.modules.core.api.CoreFrontendActions
 import com.developmentontheedge.be5.modules.core.operations.users.Login
-import com.developmentontheedge.be5.operation.OperationResult
-import com.developmentontheedge.be5.operation.OperationStatus
+import com.developmentontheedge.be5.operation.model.OperationResult
+import com.developmentontheedge.be5.operation.model.OperationStatus
 import com.google.common.collect.ImmutableList
 import ru.biosoft.muscle.util.BioStore
 
