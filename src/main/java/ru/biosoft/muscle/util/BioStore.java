@@ -1,6 +1,6 @@
 package ru.biosoft.muscle.util;
 
-import com.developmentontheedge.be5.servlet.UserInfoHolder;
+import com.developmentontheedge.be5.server.servlet.UserInfoHolder;
 import ru.biosoft.biostoreapi.DefaultConnectionProvider;
 import ru.biosoft.biostoreapi.JWToken;
 
