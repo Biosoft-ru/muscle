@@ -50,7 +50,7 @@ class BiostoreLogin extends Login
 
                 def roles = ImmutableList.of("Annotator")
 
-                userHelper.saveUser(user_name, roles, roles, meta.getLocale(null), request.getRemoteAddr(), session)
+                userHelper.saveUser(user_name, roles, roles, meta.getLocale(Locale.US), request.getRemoteAddr(), session)
 
                 setResult(OperationResult.finished(null,
                         CoreFrontendActions.updateUserAndOpenDefaultRoute(loginService.getUserInfoModel())))
