@@ -18,11 +18,11 @@ public class BioStore
         this.sessionProvider = sessionProvider;
     }
 
-    private final String BIOSTORE_SERVER_NAME = "muscle.biouml.org";
+    private final static String BIOSTORE_SERVER_NAME = "muscle.biouml.org";
 
-    public final String BIOSTORE_TOKEN = "biostore-token";
+    public final static String BIOSTORE_TOKEN = "biostore-token";
 
-    public final DefaultConnectionProvider api = new DefaultConnectionProvider(BIOSTORE_SERVER_NAME);
+    public final static DefaultConnectionProvider api = new DefaultConnectionProvider(BIOSTORE_SERVER_NAME);
 
     private JWToken getToken()
     {

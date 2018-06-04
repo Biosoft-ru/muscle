@@ -1,6 +1,8 @@
 package users
 
 import com.developmentontheedge.be5.server.helpers.UserHelper
+import groovy.transform.TypeChecked
+
 import javax.inject.Inject
 import com.developmentontheedge.be5.modules.core.api.CoreFrontendActions
 import com.developmentontheedge.be5.modules.core.operations.users.Login
@@ -10,6 +12,7 @@ import com.google.common.collect.ImmutableList
 import ru.biosoft.muscle.util.BioStore
 
 
+@TypeChecked
 class BiostoreLogin extends Login
 {
     @Inject UserHelper userHelper
@@ -50,7 +53,7 @@ class BiostoreLogin extends Login
 
                 def roles = ImmutableList.of("Annotator")
 
-                userHelper.saveUser(user_name, roles, roles, meta.getLocale(Locale.US), request.getRemoteAddr(), session)
+                userHelper.saveUser(user_name, roles, roles, meta.getLocale(Locale.US), request.getRemoteAddr())
 
                 setResult(OperationResult.finished(null,
                         CoreFrontendActions.updateUserAndOpenDefaultRoute(loginService.getUserInfoModel())))
