@@ -1,20 +1,31 @@
 package ru.biosoft.muscle.util;
 
-import com.developmentontheedge.be5.server.servlet.UserInfoHolder;
+import com.developmentontheedge.be5.web.Session;
 import ru.biosoft.biostoreapi.DefaultConnectionProvider;
 import ru.biosoft.biostoreapi.JWToken;
+
+import javax.inject.Inject;
+import javax.inject.Provider;
 
 
 public class BioStore
 {
-    private static final String BIOSTORE_SERVER_NAME = "muscle.biouml.org";
+    private final Provider<Session> sessionProvider;
 
-    public static final String BIOSTORE_TOKEN = "biostore-token";
-
-    public static final DefaultConnectionProvider api = new DefaultConnectionProvider(BIOSTORE_SERVER_NAME);
-
-    private static JWToken getToken()
+    @Inject
+    public BioStore(Provider<Session> sessionProvider)
     {
-        return (JWToken) UserInfoHolder.getSession().get(BIOSTORE_TOKEN);
+        this.sessionProvider = sessionProvider;
+    }
+
+    private final String BIOSTORE_SERVER_NAME = "muscle.biouml.org";
+
+    public final String BIOSTORE_TOKEN = "biostore-token";
+
+    public final DefaultConnectionProvider api = new DefaultConnectionProvider(BIOSTORE_SERVER_NAME);
+
+    private JWToken getToken()
+    {
+        return (JWToken) sessionProvider.get().get(BIOSTORE_TOKEN);
     }
 }
