@@ -1,6 +1,5 @@
 package ru.biosoft.muscle;
 
-import com.developmentontheedge.be5.server.ServerModule;
 import com.developmentontheedge.be5.modules.core.CoreModule;
 import com.developmentontheedge.be5.server.servlet.Be5GuiceServletContextListener;
 import com.developmentontheedge.be5.server.servlet.TemplateModule;
@@ -14,7 +13,6 @@ public class MuscleServletConfig extends Be5GuiceServletContextListener
     protected Injector getInjector()
     {
         return Guice.createInjector(
-                new ServerModule(),
                 new CoreModule(),
                 new TemplateModule(),
                 new MuscleModule()
