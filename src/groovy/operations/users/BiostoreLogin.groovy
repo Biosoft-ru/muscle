@@ -57,7 +57,7 @@ class BiostoreLogin extends Login
                 userHelper.saveUser(user_name, roles, roles, meta.getLocale(Locale.US), request.getRemoteAddr())
 
                 setResult(OperationResult.finished(null,
-                        FrontendActions.updateUserAndOpenDefaultRoute(loginService.getUserInfoModel())))
+                        FrontendActions.updateUserAndOpenDefaultRoute(userInfoModelService.getUserInfoModel())))
             }
             catch (SecurityException e)
             {
