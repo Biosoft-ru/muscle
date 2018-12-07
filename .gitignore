@@ -10,7 +10,6 @@ dev.yaml
 ### frontend build dir ###
 /src/main/webapp/static
 /src/main/webapp/WEB-INF/templates/*
-/target-frontend
 
 ### IntelliJ IDEA ###
 .idea
