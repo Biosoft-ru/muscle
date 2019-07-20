@@ -1,14 +1,16 @@
 package users
 
-import com.developmentontheedge.be5.server.FrontendActions
-import com.developmentontheedge.be5.server.helpers.UserHelper
+import com.developmentontheedge.be5.server.authentication.UserService
+import com.developmentontheedge.be5.server.authentication.UserInfoModelService
+
 import groovy.transform.TypeChecked
 
 import javax.inject.Inject
-
+import com.developmentontheedge.be5.server.FrontendActions
 import com.developmentontheedge.be5.modules.core.operations.users.Login
 import com.developmentontheedge.be5.operation.OperationResult
 import com.developmentontheedge.be5.operation.OperationStatus
+
 import com.google.common.collect.ImmutableList
 import ru.biosoft.muscle.util.BioStore
 
@@ -16,7 +18,9 @@ import ru.biosoft.muscle.util.BioStore
 @TypeChecked
 class BiostoreLogin extends Login
 {
-    @Inject UserHelper userHelper
+    @Inject UserService userHelper
+    @Inject UserInfoModelService userInfoModelService
+    @Inject BioStore bioStore
 
     @Override
     Object getParameters(Map<String, Object> presetValues) throws Exception
@@ -58,6 +62,7 @@ class BiostoreLogin extends Login
 
                 setResult(OperationResult.finished(null,
                         FrontendActions.updateUserAndOpenDefaultRoute(userInfoModelService.getUserInfoModel())))
+
             }
             catch (SecurityException e)
             {

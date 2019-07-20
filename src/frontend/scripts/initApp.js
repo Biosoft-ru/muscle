@@ -1,8 +1,9 @@
 import ReactDOM     from 'react-dom';
 import React        from 'react';
+import {AppContainer} from 'react-hot-loader'
 import { Provider } from 'react-redux';
-import {Application, initBe5App, createBaseStore, rootReducer} from 'be5-react';
-import App from './components/Application'
+import { initBe5App, createBaseStore, rootReducer} from 'be5-react';
+import Application from './components/Application';
 import './register';
 
 
@@ -19,7 +20,7 @@ const render = Component => {
 };
 
 initBe5App(store, function () {
-  render(App);
+  render(Application);
 });
 
 //Webpack Hot Module Replacement API

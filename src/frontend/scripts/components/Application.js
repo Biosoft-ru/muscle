@@ -1,5 +1,5 @@
 import React from 'react';
-import {be5, NavbarMenuContainer, Document, Be5Components} from 'be5-react';
+import {MAIN_DOCUMENT, NavbarMenuContainer, Document, Be5Components} from 'be5-react';
 
 
 class Application extends React.Component
@@ -11,7 +11,7 @@ class Application extends React.Component
         <NavbarMenuContainer brand='Muscle DB'/>
         <div className="container">
           <div className="row">
-            <Document ref="document" frontendParams={{documentName: be5.MAIN_DOCUMENT}} />
+            <Document frontendParams={{documentName: MAIN_DOCUMENT}} />
           </div>
         </div>
       </div>

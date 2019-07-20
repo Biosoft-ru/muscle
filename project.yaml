@@ -1,17 +1,20 @@
 muscle:
-  features: logging
+  projectFileStructure:
+    groovyQueriesDir: src/main/groovy
+    groovyOperationsDir: src/main/groovy
+    groovyExtendersDir: src/main/groovy
+  features: 
+  - beSqlQueries
+  - compiledGroovy
+  - logging
   l10n: ru
-  projectFileStructure: {}
   modules:
   - core:
-      entities:
-      - _logout_
-      - users
-      - categories
+      entities: []
   application:
   - _welcome_
-  - series
   - organisms
+  - series
   scripts:
   - data
   - Post-db

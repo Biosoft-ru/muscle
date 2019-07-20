@@ -10,6 +10,7 @@ dev.yaml
 ### frontend build dir ###
 /src/main/webapp/static
 /src/main/webapp/WEB-INF/templates/*
+/target-frontend
 
 ### IntelliJ IDEA ###
 .idea
@@ -29,3 +30,7 @@ node_modules/
 dist/
 public/
 coverage/
+
+### tmp ###
+pom.xml_
+src/meta/entities/series.yaml__ 

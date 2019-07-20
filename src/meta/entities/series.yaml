@@ -14,7 +14,7 @@ series:
         type: VARCHAR(100)
     - organism:
         type: KEYTYPE
-        reference: organism
+        reference: organisms
   queries:
   - All records:
       defaultView: true
@@ -22,9 +22,6 @@ series:
       roles: '@AllRoles'
       operations:
       - AddRemoveCategory
-      - Delete
-      - Insert
-      - Edit
       - Filter
       code: |-
           SELECT DISTINCT
@@ -34,21 +31,6 @@ series:
           FROM series s
           LEFT JOIN organisms o ON o.id = s.organism
   operations:
-  - Insert:
-      type: Groovy
-      roles: Annotator
-      file: series.InsertSerie.groovy
-  - Edit:
-      records: 1
-      type: Groovy
-      roles: Annotator
-      file: series.EditSerie.groovy
-  - Delete:
-      records: 2
-      layout: '{"type":"modalForm"}'
-      type: Groovy
-      roles: Annotator
-      file: series.DeleteSerie.groovy
   - AddRemoveCategory:
       records: 2
       roles: Annotator

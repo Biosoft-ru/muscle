@@ -20,8 +20,7 @@ loaders.push({
   exclude: ['node_modules']
 });
 
-const baseOutPath = 'src/main/webapp/';
-const outPath = baseOutPath + 'WEB-INF/templates';
+const baseOutPath = 'src/main/webapp/';const outPath = baseOutPath + 'WEB-INF/templates';
 
 let fileName = 'static/[name]-[hash].js';
 let templateName = 'template-dev.html';
@@ -34,10 +33,10 @@ if (env.min) {
 let config = {
   entry: {
     app: ['babel-polyfill', './src/frontend/scripts/initApp.js'],
-    be5: ['babel-polyfill', './src/frontend/scripts/be5.js']
+    manager: ['babel-polyfill', './src/frontend/scripts/manager.js']
   },
   output: {
-    publicPath: '/',
+    publicPath: './',
     path: path.join(__dirname, outPath),
     filename: fileName,
     chunkFilename: 'static/app-[name]-[id].js',
@@ -62,6 +61,7 @@ let config = {
     new OptimizeCssAssetsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
+      fixAssets: true,
       template: './src/frontend/' + templateName,
       chunks: ['commons', 'app'],
       files: {
@@ -70,9 +70,10 @@ let config = {
       }
     }),
     new HtmlWebpackPlugin({
-      filename: 'be5/index.html',
+      filename: 'manager/index.html',
+      fixAssets: true,
       template: './src/frontend/' + templateName,
-      chunks: ['commons', 'be5'],
+      chunks: ['commons', 'manager'],
       files: {
         css: ['style.css'],
         js: ['bundle.js'],
