@@ -11,6 +11,8 @@
          primaryKey: true
      - title:
          type: VARCHAR(100)
+     - latin:
+         type: VARCHAR(200)
    queries:
    - All records:
        defaultView: true
