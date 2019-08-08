@@ -46,9 +46,19 @@ The database contains following data:
 
 ```sh
 mvn be5:create-db
-или если нужно только обновить
-mvn be5:sync
 ```
+
+Полезные таски из плагина be5 для maven
+ 
+```sh
+mvn be5:sync
+если нужно только обновить/синхронизировать структуру базы данных с ее декларацией в be5
+
+mvn be5:data -DBE5_SCRIPT=script_name
+выполнение скрипта по имени переданного в параметре BE5_SCRIPT, по умолчанию из папка src/ftl
+```
+
+Подробнее - https://github.com/DevelopmentOnTheEdge/be5/wiki/Maven-plugin
 
 #### Frontend
 Фронтенд собирается в src/main/webapp/
