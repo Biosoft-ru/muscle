@@ -19,5 +19,6 @@ muscle:
   - data
   - Post-db
   - dictionaries
+  - users
   includes:
   - common

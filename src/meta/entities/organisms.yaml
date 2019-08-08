@@ -21,5 +21,6 @@
        code: |-
            SELECT
              o.ID AS "___ID",
-             o.title AS "Title"
+             o.title AS "Title",
+             o.latin AS "Latin name"
            FROM organisms o
