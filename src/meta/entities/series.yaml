@@ -10,11 +10,21 @@ series:
         type: KEYTYPE
         autoIncrement: true
         primaryKey: true
-    - title:
-        type: VARCHAR(100)
+    - GSE:
+        type: VARCHAR(10)
+    - PMID:
+        type: KEYTYPE
     - organism:
         type: KEYTYPE
         reference: organisms
+    - type:
+        type: VARCHAR(10)
+    - title:
+        type: VARCHAR(100)
+    - description:
+        type: VARCHAR(4000)
+    - design:
+        type: VARCHAR(4000)
   queries:
   - All records:
       defaultView: true
