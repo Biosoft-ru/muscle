@@ -16,9 +16,10 @@ muscle:
   - organisms
   - series
   scripts:
-  - data
-  - Post-db
+  - common
   - dictionaries
   - users
+  - Post-db
+  - GSE120862
   includes:
   - common

@@ -20,7 +20,7 @@ series:
     - type:
         type: VARCHAR(10)
     - title:
-        type: VARCHAR(100)
+        type: VARCHAR(500)
     - description:
         type: VARCHAR(4000)
     - design:
