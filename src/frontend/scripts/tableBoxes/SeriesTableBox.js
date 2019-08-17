@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {registerTableBox, processHashUrl, TablePagination} from 'be5-react';
+import {registerTableBox, processHashUrl, Navs} from 'be5-react';
 
 
 class SeriesTableBox extends Component
 {
-	componentDidMount() 
+  componentDidMount() 
 	{
 		document.getElementsByClassName("table-component__title")[0].innerText = this.title;
   	}
@@ -16,9 +16,19 @@ class SeriesTableBox extends Component
 		this.title = series.PageTitle.value;
     	be5.ui.setTitle(this.title);
 
-		return (
+  	const steps = [
+		{title: "Description", 		url: '#!table/entity/view'},
+		{title: "Individs", 		url: '#!table/entity/view'},
+		{title: "Conditions", 		url: '#!table/entity/view'},
+		{title: "Samples", 			url: '#!table/entity/view'},
+		{title: "Comparisons (DEGs)",		url: '#!table/entity/view'},
+		{title: "Quality control",	url: '#!table/entity/view'}
+  	];
+
+
+  	return (
       	<div className="photos">
-		  dddd
+        <Navs steps={steps} tabs startAtStep={0} />
       	</div>
     );
   }
