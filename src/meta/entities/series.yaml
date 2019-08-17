@@ -26,6 +26,12 @@ series:
     - design:
         type: VARCHAR(4000)
   queries:
+  - '*** Selection view ***':
+      type: 1D
+      code: |-
+          SELECT ID AS "ID", 
+          GSE AS "Name"
+          FROM series
   - All records:
       defaultView: true
       type: 1D
@@ -36,10 +42,31 @@ series:
       code: |-
           SELECT DISTINCT
             s.ID AS "___ID",
-            o.title AS "Organism;<quick visible='false' />",
-            s.title AS "Title"
+            s.GSE AS "GSE",
+            s.title AS "Title",
+            '<link table="series" queryName="Details" using="___ID" columns="ID" />' AS ";Title",
+            o.title AS "Organism;<quick visible='true' />",
+            s.type AS "Type",
+            s.description AS "Description;<quick visible='false' />"
           FROM series s
           LEFT JOIN organisms o ON o.id = s.organism
+  - Details:
+      type: 1D
+      roles: '@AllRoles'
+      code: |-
+          SELECT DISTINCT
+            s.ID AS "___ID",
+            s.GSE AS "GSE",
+            s.title AS "Title",
+            o.title AS "Organism",
+            s.type AS "Type",
+            s.description AS "Description"
+          FROM series s
+          LEFT JOIN organisms o ON o.id = s.organism
+          WHERE (1=1)
+          <if parameter="ID">
+              AND s.ID = <parameter:ID/>
+          </if>
   operations:
   - AddRemoveCategory:
       records: 2
