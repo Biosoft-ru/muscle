@@ -43,6 +43,7 @@ series:
           SELECT DISTINCT
             s.ID AS "___ID",
             s.GSE AS "GSE",
+            -- '<a href="#!series/' || s.ID || '">' || s.title || '</a>' AS "Title",
             s.title AS "Title",
             '<link table="series" queryName="Details" using="___ID" columns="ID" />' AS ";Title",
             o.title AS "Organism;<quick visible='true' />",
@@ -51,11 +52,13 @@ series:
           FROM series s
           LEFT JOIN organisms o ON o.id = s.organism
   - Details:
-      type: 1D
+      layout: '{"_displayType_":"series", "mode":"named"}'
+      invisible: true
       roles: '@AllRoles'
       code: |-
           SELECT DISTINCT
-            s.ID AS "___ID",
+            s.ID AS "ID",
+            'Series ' || s.GSE AS "PageTitle",
             s.GSE AS "GSE",
             s.title AS "Title",
             o.title AS "Organism",
