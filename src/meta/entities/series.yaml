@@ -40,7 +40,7 @@ series:
       - AddRemoveCategory
       - Filter
       code: |-
-          SELECT DISTINCT
+          SELECT
             s.ID AS "___ID",
             s.GSE AS "GSE",
             -- '<a href="#!series/' || s.ID || '">' || s.title || '</a>' AS "Title",
@@ -56,16 +56,27 @@ series:
       invisible: true
       roles: '@AllRoles'
       code: |-
-          SELECT DISTINCT
+          SELECT
             s.ID AS "ID",
             'Series ' || s.GSE AS "PageTitle",
             s.GSE AS "GSE",
             s.title AS "Title",
             o.title AS "Organism",
             s.type AS "Type",
-            s.description AS "Description"
           FROM series s
           LEFT JOIN organisms o ON o.id = s.organism
+          WHERE (1=1)
+          <if parameter="ID">
+              AND s.ID = <parameter:ID/>
+          </if>
+  - Description:
+      invisible: true
+      roles: '@AllRoles'
+      code: |-
+          SELECT
+            s.ID AS "ID",
+            s.description AS "Description"
+          FROM series s
           WHERE (1=1)
           <if parameter="ID">
               AND s.ID = <parameter:ID/>
