@@ -34,7 +34,7 @@ The database contains following data:
 для maven нужно настроить nexus https://sites.google.com/a/developmentontheedge.com/wiki/home/sistemnoe-administrirovanie/maven-repozitorij-nexus
 нужна только первая часть - до "mvn deploy"
 
-дальше из приложения gtrd-be5-site
+дальше из приложения muscle
 -- вызвать npm install - будет скачано 100+ мб
 -- mvn install -U -Dmaven.artifact.threads=1
  
