@@ -52,7 +52,7 @@ series:
           FROM series s
           LEFT JOIN organisms o ON o.id = s.organism
   - Details:
-      layout: '{"_displayType_":"series", "mode":"named"}'
+      layout: '{"tableBox":"series", "mode":"named", "hideTitle":"true"}'
       invisible: true
       roles: '@AllRoles'
       code: |-
@@ -70,7 +70,7 @@ series:
               AND s.ID = <parameter:ID/>
           </if>
   - Description:
-      layout: '{"_displayType_":"seriesDescription", "mode":"named"}'
+      layout: '{"tableBox":"seriesDescription", "mode":"named", "hideTitle":"true"}'
       invisible: true
       roles: '@AllRoles'
       code: |-

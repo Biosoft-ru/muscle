@@ -46,3 +46,14 @@ RNA-sequencing (84 samples in total; ~47 million reads/sample) was performed by 
  </ul>
  "?str}
  );
+ 
+ -- individuals
+ delete from individuals where ID IN (1,2,3,4,5,6,7);
+ 
+INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(1, '1', ${human}, ${male}, ${adult}, ${healthy} );
+INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(2, '3', ${human}, ${male}, ${adult}, ${healthy} );
+INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(3, '4', ${human}, ${male}, ${adult}, ${healthy} );
+INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(4, '5', ${human}, ${male}, ${adult}, ${healthy} );
+INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(5, '7', ${human}, ${male}, ${adult}, ${healthy} );
+INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(6, '8', ${human}, ${male}, ${adult}, ${healthy} );
+INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(7, '9', ${human}, ${male}, ${adult}, ${healthy} );

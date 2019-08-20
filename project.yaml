@@ -15,6 +15,7 @@ muscle:
   - _welcome_
   - organisms
   - series
+  - individuals
   scripts:
   - common
   - dictionaries
