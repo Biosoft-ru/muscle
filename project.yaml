@@ -13,9 +13,15 @@ muscle:
       entities: []
   application:
   - _welcome_
-  - organisms
-  - series
+  - biosamples
+  - cells
+  - conditions
   - individuals
+  - organisms
+  - platforms
+  - samples
+  - series
+  - tissues
   scripts:
   - common
   - dictionaries

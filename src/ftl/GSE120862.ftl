@@ -57,3 +57,7 @@ INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(4, '5', $
 INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(5, '7', ${human}, ${male}, ${adult}, ${healthy} );
 INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(6, '8', ${human}, ${male}, ${adult}, ${healthy} );
 INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(7, '9', ${human}, ${male}, ${adult}, ${healthy} );
+
+
+-- samples
+

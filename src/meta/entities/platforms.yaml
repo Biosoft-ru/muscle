@@ -1,0 +1,13 @@
+ platforms:
+   type: dictionary
+   displayName: Platforms
+   besql: true
+   primaryKey: ID
+   scheme:
+     columns:
+     - ID:
+         type: KEYTYPE
+         primaryKey: true
+     - title:
+         type: VARCHAR(100)
+   queries: []

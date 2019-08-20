@@ -1,0 +1,33 @@
+conditions:
+  type: table
+  displayName: Conditions
+  besql: true
+  primaryKey: ID
+  scheme:
+    columns:
+    - ID:
+        type: KEYTYPE
+        autoIncrement: true
+        primaryKey: true
+    - organism:
+        type: KEYTYPE
+        reference: organisms
+    - code:
+        type: VARCHAR(10)
+    - sex:
+        type: VARCHAR(10)
+        canBeNull: true
+    - age:
+        type: SMALLINT
+        canBeNull: true
+    - stage:
+        type: VARCHAR(10)
+        canBeNull: true
+    - state:
+        type: VARCHAR(10)
+        canBeNull: true
+    - comment:
+        type: VARCHAR(200)
+        canBeNull: true
+  queries: []
+  operations: []

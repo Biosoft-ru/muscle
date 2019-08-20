@@ -1,0 +1,30 @@
+biosamples:
+  type: table
+  displayName: BioSamples
+  besql: true
+  primaryKey: ID
+  scheme:
+    columns:
+    - ID:
+        type: KEYTYPE
+        autoIncrement: true
+        primaryKey: true
+    - code:
+        type: VARCHAR(50)
+    - individual:
+        type: KEYTYPE
+        reference: individuals
+        canBeNull: true
+    - condition:
+        type: KEYTYPE
+        reference: conditions
+    - tissue:
+        type: KEYTYPE
+        reference: tissues
+        canBeNull: true
+    - cell:
+        type: KEYTYPE
+        reference: cells
+        canBeNull: true
+  queries: []
+  operations: []
