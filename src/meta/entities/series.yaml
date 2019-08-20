@@ -62,7 +62,7 @@ series:
             s.GSE AS "GSE",
             s.title AS "Title",
             o.title AS "Organism",
-            s.type AS "Type",
+            s.type AS "Type"
           FROM series s
           LEFT JOIN organisms o ON o.id = s.organism
           WHERE (1=1)
@@ -70,12 +70,16 @@ series:
               AND s.ID = <parameter:ID/>
           </if>
   - Description:
+      layout: '{"_displayType_":"seriesDescription", "mode":"named"}'
       invisible: true
       roles: '@AllRoles'
       code: |-
           SELECT
             s.ID AS "ID",
-            s.description AS "Description"
+            s.description AS "Description",
+            s.design AS "Design",
+            s.GSE AS "GSE",
+            s.PMID AS "PMID"
           FROM series s
           WHERE (1=1)
           <if parameter="ID">

@@ -17,7 +17,7 @@ class SeriesTableBox extends Component
     	be5.ui.setTitle(this.title);
 
   	const steps = [
-		{title: "Description", 		url: '#!table/series/description/ID=' + series.ID.value},
+		{title: "Description", 		url: '#!table/series/Description/ID=' + series.ID.value},
 		{title: "Individs", 		url: '#!table/entity/view'},
 		{title: "Conditions", 		url: '#!table/entity/view'},
 		{title: "Samples", 			url: '#!table/entity/view'},
@@ -29,6 +29,7 @@ class SeriesTableBox extends Component
 //	o.title AS "Organism",
 //    s.type AS "Type",
 //    s.description AS "Description"
+//  <p dangerouslySetInnerHTML={{__html: series.Description.value}} />
   	
 
   	return (
@@ -36,8 +37,6 @@ class SeriesTableBox extends Component
       	
       	<p>{series.Organism.value}, {series.Type.value}</p>
       	<h2 className="seriesTitle">{series.Title.value}</h2>
-
-        <p dangerouslySetInnerHTML={{__html: series.Description.value}} />
       	
       	<Navs steps={steps} tabs startAtStep={0} />
       	</div>

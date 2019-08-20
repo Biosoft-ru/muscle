@@ -33,13 +33,16 @@ to identify genes that are directly related to contractile activity in human ske
 of the level of fitness as well as a change in baseline transcriptome after long term training. 
 RNA-sequencing (84 samples in total; ~47 million reads/sample) was performed by NextSeq 500 and HiSeq 2500 (Illumina).
 
-Symbols in file names: 
- ‘Ex’ – exercised leg; 
- ‘NE’ – non-exercised leg; 
- ‘baseline’ – prior to the one-legged exercise; 
- ‘+1 h’ – 1 h after the one-legged exercise; 
- ‘+4 h’ – 4 h after the one-legged exercise; 
- ‘untrained’ – before a 2 month aerobic training programme; 
- ‘trained’ – after a 2 month aerobic training programme; 
- the last symbol in file name – subject’s ID."?str}
+<br/><br/>Symbols in file names: 
+<ul>
+ <li>Ex – exercised leg;</li> 
+ <li>NE – non-exercised leg;</li> 
+ <li>baseline – prior to the one-legged exercise;</li> 
+ <li>+1 h – 1 h after the one-legged exercise;</li> 
+ <li>+4 h – 4 h after the one-legged exercise;</li> 
+ <li>untrained – before a 2 month aerobic training programme;</li> 
+ <li>trained – after a 2 month aerobic training programme;</li> 
+ <li>the last symbol in file name – subject’s ID.</li>
+ </ul>
+ "?str}
  );
