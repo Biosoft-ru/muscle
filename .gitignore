@@ -32,5 +32,4 @@ public/
 coverage/
 
 ### tmp ###
-pom.xml_
-src/meta/entities/series.yaml__ 
+util/*.class
