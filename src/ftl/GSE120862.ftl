@@ -47,17 +47,62 @@ RNA-sequencing (84 samples in total; ~47 million reads/sample) was performed by 
  "?str}
  );
  
+ -- ---------------------------------------------------------------------------
  -- individuals
- delete from individuals where ID IN (1,2,3,4,5,6,7);
+
+delete from individuals where ID IN (1,2,3,4,5,6,7);
+
+<#macro individ id, code, age>
+INSERT INTO individuals(ID, code, age, organism,  sex, stage, state) VALUES(${id}, ${code?str}, ${age}, ${human}, ${male}, ${adult}, ${healthy} );
+</#macro>
+
+<@individ id=1 code=1 age=21 />
  
-INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(1, '1', ${human}, ${male}, ${adult}, ${healthy} );
-INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(2, '3', ${human}, ${male}, ${adult}, ${healthy} );
-INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(3, '4', ${human}, ${male}, ${adult}, ${healthy} );
-INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(4, '5', ${human}, ${male}, ${adult}, ${healthy} );
-INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(5, '7', ${human}, ${male}, ${adult}, ${healthy} );
-INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(6, '8', ${human}, ${male}, ${adult}, ${healthy} );
-INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(7, '9', ${human}, ${male}, ${adult}, ${healthy} );
+
+--- ---------------------------------------------------------------------------
+-- conditions
+
+delete from conditions WHERE ID <= 12;
+
+<#macro condition id, title, status, time, treatment>
+INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${title?str}, ${status}, ${time}, ${treatment} );
+</#macro>
+
+<@condition id=1  title='untrained_baseline_NE' status=untrained time=  0 treatment='NULL' />
+<@condition id=2  title='untrained_+1h_NE'      status=untrained time= 60 treatment=aerobic_exercise_60m /> 
+<@condition id=3  title='untrained_+4h_NE'      status=untrained time=240 treatment=aerobic_exercise_60m /> 
+<@condition id=4  title='untrained_baseline_Ex' status=untrained time=  0 treatment='NULL' /> 
+<@condition id=5  title='untrained_+1h_Ex'      status=untrained time= 60 treatment=aerobic_exercise_60m /> 
+<@condition id=6  title='untrained_+4h_Ex'      status=untrained time=240 treatment=aerobic_exercise_60m /> 
+<@condition id=7  title='trained_baseline_NE'   status=trained   time=  0 treatment=aerobic_training_4w  /> 
+<@condition id=8  title='trained_+1h_NE'        status=trained   time= 60 treatment=aerobic_exercise_60m /> 
+<@condition id=9  title='trained_+4h_NE'        status=trained   time=240 treatment=aerobic_exercise_60m /> 
+<@condition id=10 title='trained_baseline_Ex'   status=trained   time=  0 treatment=aerobic_training_4w  /> 
+<@condition id=11 title='trained_+1h_Ex'        status=trained   time= 60 treatment=aerobic_exercise_60m /> 
+<@condition id=12 title='trained_+4h_Ex'        status=trained   time= 60 treatment=aerobic_exercise_60m /> 
 
 
+-- ---------------------------------------------------------------------------
 -- samples
 
+delete from biosamples where id < 84;
+delete from samples where id < 84;
+
+<#macro sample id, GSM, condition, individ, platform, SRA, biosample>
+
+<#local title = condition + '_' + individ>
+
+INSERT INTO biosamples(ID, title, individual, tissue, biosample, condition)
+(
+	SELECT ${id}, ${title?str}, ${individ}, ${muscle_VL}, ${biosample?str}, c.id
+	FROM conditions c 
+	WHERE c.title=${condition?str}
+);	
+
+INSERT INTO samples(ID, GSM, title, type, platform, SRA, biosample, series)
+VALUES(${id}, ${GSM?str}, ${title?str}, ${rna_seq}, ${platform?str}, ${SRA?str}, ${id}, 1);
+
+</#macro>
+
+
+<@sample id=1 GSM='GSM3417304' condition='untrained_baseline_NE' individ=1  platform=Illumina_HiSeq_2500 SRA='SRX4801195' biosample='SAMN10180041' />

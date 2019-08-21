@@ -9,7 +9,7 @@ biosamples:
         type: KEYTYPE
         autoIncrement: true
         primaryKey: true
-    - code:
+    - title:
         type: VARCHAR(50)
     - individual:
         type: KEYTYPE
@@ -26,5 +26,9 @@ biosamples:
         type: KEYTYPE
         reference: cells
         canBeNull: true
+    - biosample:
+         doc: Reference to GEO BioSample
+         type: VARCHAR(12)
+        
   queries: []
   operations: []

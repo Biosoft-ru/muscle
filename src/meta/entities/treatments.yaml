@@ -1,6 +1,6 @@
-tissues:
+treatments:
   type: dictionary
-  displayName: Tissues
+  displayName: Treatments
   besql: true
   primaryKey: ID
   scheme:
@@ -10,8 +10,10 @@ tissues:
         primaryKey: true
     - title:
         type: VARCHAR(100)
-    - parent:
-        type: KEYTYPE
-        reference: tissues
+    - description:
+        type: VARCHAR(1000)
+        canBeNull: true
+    - comment:
+        type: VARCHAR(1000)
         canBeNull: true
   queries: []

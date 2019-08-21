@@ -9,7 +9,7 @@ samples:
         type: KEYTYPE
         autoIncrement: true
         primaryKey: true
-    - code:
+    - title:
         type: VARCHAR(50)
     - biosample:
         type: KEYTYPE

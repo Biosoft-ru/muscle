@@ -1,13 +1,13 @@
- cells:
-   type: dictionary
-   displayName: Cell lines
-   besql: true
-   primaryKey: ID
-   scheme:
-     columns:
-     - ID:
-         type: KEYTYPE
-         primaryKey: true
-     - title:
-         type: VARCHAR(100)
-   queries: []
+cells:
+  type: dictionary
+  displayName: Cell lines
+  besql: true
+  primaryKey: ID
+  scheme:
+    columns:
+    - ID:
+        type: KEYTYPE
+        primaryKey: true
+    - title:
+        type: VARCHAR(100)
+  queries: []

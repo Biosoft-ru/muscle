@@ -21,9 +21,11 @@ individuals:
         type: SMALLINT
         canBeNull: true
     - stage:
+        doc: PENDING - for example - adult 
         type: VARCHAR(10)
         canBeNull: true
     - state:
+        doc: PENDING - for example - healthy 
         type: VARCHAR(10)
         canBeNull: true
     - comment:

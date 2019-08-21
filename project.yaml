@@ -22,6 +22,7 @@ muscle:
   - samples
   - series
   - tissues
+  - treatments
   scripts:
   - common
   - dictionaries

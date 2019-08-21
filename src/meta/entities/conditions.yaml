@@ -9,22 +9,18 @@ conditions:
         type: KEYTYPE
         autoIncrement: true
         primaryKey: true
-    - organism:
+    - title:
+        type: VARCHAR(50)
+    - treatment:
         type: KEYTYPE
-        reference: organisms
-    - code:
-        type: VARCHAR(10)
-    - sex:
-        type: VARCHAR(10)
+        reference: treatments
         canBeNull: true
-    - age:
-        type: SMALLINT
-        canBeNull: true
-    - stage:
-        type: VARCHAR(10)
-        canBeNull: true
-    - state:
-        type: VARCHAR(10)
+    - timePoint:
+        doc: time from treatment, generally in minutes
+        type: SMALLINT        
+    - status:
+        doc: training status (trained/untrained)
+        type: VARCHAR(50)
         canBeNull: true
     - comment:
         type: VARCHAR(200)

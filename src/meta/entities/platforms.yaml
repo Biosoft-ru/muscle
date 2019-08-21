@@ -10,4 +10,7 @@
          primaryKey: true
      - title:
          type: VARCHAR(100)
+     - GPL:
+         doc: Reference to GEO platforms
+         type: VARCHAR(10)
    queries: []
