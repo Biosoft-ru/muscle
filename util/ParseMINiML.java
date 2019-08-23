@@ -143,14 +143,20 @@ public class ParseMINiML
 			else if (qName.equalsIgnoreCase("Sample"))
 			{
 				n++;
+
+				// https://trace.ncbi.nlm.nih.gov/Traces/study/?acc=SRP163524
+				//GSM='GSM3417304'
+				//SRR='SRR7967699
+				int s = Integer.parseInt(sample.id.substring(3, 10)) - 3417304;
 				
-			//	<@sample id=1 GSM='GSM3417304' condition='untrained_baseline_NE' individ=1  platform=Illumina_HiSeq_2500 SRA='SRX4801195' biosample='SAMN10180041' />
+			//	<@sample id=1 GSM='GSM3417304' condition='untrained_baseline_NE' individ=1  platform=Illumina_HiSeq_2500 SRA='SRX4801195' SRR='SRR7967699' biosample='SAMN10180041' />
 				String out = "<@sample id=" + n  
 						+ " GSM='" + sample.id
 						+ "' condition='" + sample.condition
 						+ "' individ=" + sample.individ
 						+ " platform=" + sample.platform
 						+ " SRA='" + sample.SRA
+						+ "' SRR='SRR" + (7967699+s) 
 						+ "' biosample='" + sample.biosample
 						+ "' />";
 				

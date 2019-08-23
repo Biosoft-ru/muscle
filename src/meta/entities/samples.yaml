@@ -27,6 +27,8 @@ samples:
         type: VARCHAR(12)
     - SRA:
         type: VARCHAR(12)
+    - SRR:
+        type: VARCHAR(12)
     - comment:
         type: VARCHAR(200)
         canBeNull: true
