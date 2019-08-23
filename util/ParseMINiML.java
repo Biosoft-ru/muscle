@@ -132,8 +132,19 @@ public class ParseMINiML
             	individ.sex = value;
             }
         }
-		
-		public void endElement(String uri, String localName, String qName) throws SAXException 
+
+        // average spot len from 
+        // https://trace.ncbi.nlm.nih.gov/Traces/study/?acc=SRP163524
+        int[] avgSpotLen = {
+        60,60,60,60,60,60,60,60,60,60,60,60,
+        51,51,51,51,51,51,51,51,51,51,51,51,
+        60,60,60,60,60,60,60,60,60,60,60,60,
+        51,51,51,51,51,51,51,51,51,51,51,51,
+        76,76,76,76,76,76,76,76,76,76,76,76,
+        75,75,75,75,75,75,75,75,75,75,75,75,
+        76,76,76,76,76,76,76,76,76,76,76,76 };
+
+        public void endElement(String uri, String localName, String qName) throws SAXException 
 		{
 			if( qName.equalsIgnoreCase("Characteristics") )
 			{
@@ -149,7 +160,8 @@ public class ParseMINiML
 				//SRR='SRR7967699
 				int s = Integer.parseInt(sample.id.substring(3, 10)) - 3417304;
 				
-			//	<@sample id=1 GSM='GSM3417304' condition='untrained_baseline_NE' individ=1  platform=Illumina_HiSeq_2500 SRA='SRX4801195' SRR='SRR7967699' biosample='SAMN10180041' />
+			//	<@sample id=1 GSM='GSM3417304' condition='untrained_baseline_NE' individ=1  platform=Illumina_HiSeq_2500 
+			//	SRA='SRX4801195' SRR='SRR7967699' avgSpotLen=60 biosample='SAMN10180041' />
 				String out = "<@sample id=" + n  
 						+ " GSM='" + sample.id
 						+ "' condition='" + sample.condition
@@ -157,7 +169,8 @@ public class ParseMINiML
 						+ " platform=" + sample.platform
 						+ " SRA='" + sample.SRA
 						+ "' SRR='SRR" + (7967699+s) 
-						+ "' biosample='" + sample.biosample
+						+ "' avgSpotLen=" + avgSpotLen[s] 
+						+ " biosample='" + sample.biosample
 						+ "' />";
 				
 				System.out.println(out);
