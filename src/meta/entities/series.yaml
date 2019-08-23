@@ -121,8 +121,65 @@ series:
           INNER JOIN biosamples b ON b.ID = samples.biosample 
           INNER JOIN conditions c ON c.ID = b.condition
           LEFT JOIN treatments t ON t.ID = c.treatment
-          WHERE s.ID =1
+          WHERE s.ID = <parameter:ID/>
           order by c.ID 
+  - Samples:
+      type: 1D_unknown
+      layout: '{"hideTitle":"true", "defaultPageLimit":30}'
+      invisible: true
+      roles: '@AllRoles'
+      code: |-
+          SELECT DISTINCT
+            samples.id AS "ID",
+            samples.title AS "Title",
+            
+            CASE WHEN p.title IS NULL THEN NULL
+            ELSE p.title || 'GEO: <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=' || p.GPL 
+                         || '" target="_blank">' || p.GPL || '</a>' 
+            END AS "Platform;<quick visible='false'/>",
+
+            CASE WHEN samples.GSM IS NULL THEN NULL
+            ELSE '<a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=' || samples.GSM || '" target="_blank">' || samples.GSM || '</a>' 
+            END AS "GEO;<quick visible='true'/>",
+            
+            CASE WHEN samples.SRA IS NULL THEN NULL
+            ELSE '<a href="https://www.ncbi.nlm.nih.gov/sra?term=' || samples.SRA || '" target="_blank">' || samples.SRA || '</a>' 
+            END AS "SRA (SRX);<quick visible='false'/>",
+
+            CASE WHEN samples.SRR IS NULL THEN NULL
+            ELSE '<a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=' || samples.SRR || '" target="_blank">' || samples.SRR || '</a>' 
+            END AS "SRA (SRR);<quick visible='false'/>",
+
+            samples.avgSpotLen AS "Average spot length;<quick visible='false'/>",
+
+            i.code AS "Individ",
+            i.age AS "Individ age;<quick visible='false'/>",
+            i.sex AS "Individ sex;<quick visible='false'/>",
+            i.stage AS "Individ stage;<quick visible='false'/>",
+            i.state AS "Individ state;<quick visible='false'/>",
+            i.comment AS "Individ comment;<quick visible='false'/>",
+
+            t.title AS "Treatment",
+            t.description AS "Treatment details;<quick visible='false' />",
+            t.comment AS "Treatment comment;<quick visible='false' />",
+            c.timePoint AS "Time point (min)",
+            c.status AS "Treatment status;<quick visible='false'/>",
+            c.comment AS "Treatment comment;<quick visible='false'/>",
+
+            tissues.title AS "Tissue;<quick visible='true'/>",
+            cells.title AS "Cells;<quick visible='faslse'/>"
+            
+          FROM series s 
+          INNER JOIN samples ON samples.series = s.ID
+          LEFT JOIN platforms p ON p.ID = samples.platform
+          INNER JOIN biosamples b ON b.ID = samples.biosample 
+          INNER JOIN individuals i ON i.ID = b.individual
+          INNER JOIN conditions c ON c.ID = b.condition
+          LEFT JOIN treatments t ON t.ID = c.treatment
+          LEFT JOIN tissues ON tissues.ID = b.tissue
+          LEFT JOIN cells ON cells.ID = b.cell
+          WHERE s.ID = <parameter:ID/>
+          order by samples.ID
   operations:
   - AddRemoveCategory:
       records: 2

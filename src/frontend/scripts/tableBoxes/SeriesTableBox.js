@@ -22,7 +22,7 @@ class SeriesTableBox extends Component
 		{title: "Description", 		url: '#!table/series/Description/ID=' + series.ID.value},
 		{title: "Individs", 		url: '#!table/series/Individs/ID='    + series.ID.value},
 		{title: "Conditions", 		url: '#!table/series/Conditions/ID='  + series.ID.value},
-		{title: "Samples", 			url: '#!table/entity/view'},
+		{title: "Samples", 			url: '#!table/series/Samples/ID='     + series.ID.value},
 		{title: "Comparisons (DEGs)",		url: '#!table/entity/view'},
 		{title: "Quality control",	url: '#!table/entity/view'}
   	];
