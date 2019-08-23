@@ -6,7 +6,8 @@ class SeriesDescriptionTableBox extends Component
 {
   componentDidMount() 
 	{
-	  document.querySelector('.tab-content').querySelector('.table-component__title').innerText = '';
+		// PENDING - remove when layout: {"hideTitle":"true"} will be supported
+		document.querySelector('.tab-content').querySelector('.table-component__title').innerText = '';
   	}
 	
 	render()

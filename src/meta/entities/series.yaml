@@ -81,10 +81,48 @@ series:
             s.GSE AS "GSE",
             s.PMID AS "PMID"
           FROM series s
-          WHERE (1=1)
-          <if parameter="ID">
-              AND s.ID = <parameter:ID/>
-          </if>
+          WHERE s.ID = <parameter:ID/>
+  - Individs:
+      type: 1D_unknown
+      layout: '{"hideTitle":"true", "defaultPageLimit":30}'
+      invisible: true
+      roles: '@AllRoles'
+      code: |-
+          SELECT DISTINCT
+            i.code AS "Code",
+            i.age AS "Age",
+            i.sex AS "Sex",
+            i.stage AS "Stage",
+            i.state AS "State",
+            i.comment AS "Comment"
+          FROM series s 
+          INNER JOIN samples ON samples.series = s.ID
+          INNER JOIN biosamples b ON b.ID = samples.biosample 
+          INNER JOIN individuals i ON i.ID = b.individual
+          WHERE s.ID = <parameter:ID/>
+          ORDER BY i.code              
+  - Conditions:
+      type: 1D_unknown
+      layout: '{"hideTitle":"true", "defaultPageLimit":30}'
+      invisible: true
+      roles: '@AllRoles'
+      code: |-
+          SELECT DISTINCT
+            c.id AS "ID",
+            c.title AS "Title",
+            t.title AS "Treatment",
+            t.description AS "Treatment details;<quick visible='false' />",
+            t.comment AS "Treatment comment;<quick visible='false' />",
+            c.timePoint AS "Time point (min)",
+            c.status AS "Status",
+            c.comment AS "Comment"
+          FROM series s 
+          INNER JOIN samples ON samples.series = s.ID
+          INNER JOIN biosamples b ON b.ID = samples.biosample 
+          INNER JOIN conditions c ON c.ID = b.condition
+          LEFT JOIN treatments t ON t.ID = c.treatment
+          WHERE s.ID =1
+          order by c.ID 
   operations:
   - AddRemoveCategory:
       records: 2
