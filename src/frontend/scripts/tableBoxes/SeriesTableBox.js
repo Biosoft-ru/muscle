@@ -4,19 +4,12 @@ import {registerTableBox, processHashUrl, Navs} from 'be5-react';
 
 class SeriesTableBox extends Component
 {
-  componentDidMount() 
-	{
-		document.getElementsByClassName("table-component__title")[0].innerText = this.title;
+  render()
+  {
+    const series = this.props.value.data.attributes.rows[0];
 
-//		document.querySelector('.tab-content').querySelector('.table-component__title').innerText = '';
-	}
-	
-	render()
-	{
-		const series = this.props.value.data.attributes.rows[0];
-
-		this.title = series.PageTitle.value;
-    	be5.ui.setTitle(this.title);
+    this.title = series.PageTitle.value;
+    be5.ui.setTitle(this.title);
 
   	const steps = [
 		{title: "Description", 		url: '#!table/series/Description/ID=' + series.ID.value},
