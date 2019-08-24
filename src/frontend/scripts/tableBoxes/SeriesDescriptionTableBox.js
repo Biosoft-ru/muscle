@@ -4,15 +4,15 @@ import {registerTableBox, processHashUrl, Navs} from 'be5-react';
 
 class SeriesDescriptionTableBox extends Component
 {
-  componentDidMount() 
-	{
+  componentDidMount()
+  {
 		// PENDING - remove when layout: {"hideTitle":"true"} will be supported
-		document.querySelector('.tab-content').querySelector('.table-component__title').innerText = '';
-  	}
-	
-	render()
-	{
-		const series = this.props.value.data.attributes.rows[0];
+		//document.querySelector('.tab-content').querySelector('.table-component__title').innerText = '';
+  }
+
+  render()
+  {
+	const series = this.props.value.data.attributes.rows[0];
 
   	return ( <div>
         <p dangerouslySetInnerHTML={{__html: series.Description.value}} />
