@@ -4,6 +4,10 @@ import {registerTableBox, processHashUrl, Navs} from 'be5-react';
 
 class SeriesTableBox extends Component
 {
+  componentDidMount()
+  {
+  }
+  
   render()
   {
     const series = this.props.value.data.attributes.rows[0];
@@ -22,7 +26,9 @@ class SeriesTableBox extends Component
 
   	return (
       	<div className="seriesInfo">
-      	
+
+		<h1>{series.PageTitle.value}</h1>
+
       	<p>{series.Organism.value}, {series.Type.value}</p>
       	<h2 className="seriesTitle">{series.Title.value}</h2>
       	

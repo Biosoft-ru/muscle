@@ -1,0 +1,30 @@
+comparisons:
+  type: table
+  displayName: Comparisons
+  besql: true
+  primaryKey: ID
+  scheme:
+    columns:
+    - ID:
+        type: KEYTYPE
+        autoIncrement: true
+        primaryKey: true
+    - title:
+        type: VARCHAR(50)
+    - series:
+        type: KEYTYPE
+        reference: series
+        canBeNull: true
+    - condition1:
+        type: KEYTYPE
+        reference: conditions
+        canBeNull: true
+    - condition2:
+        type: KEYTYPE
+        reference: conditions
+        canBeNull: true
+    - comment:
+        type: VARCHAR(200)
+        canBeNull: true
+  queries: []
+  operations: []

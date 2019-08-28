@@ -43,7 +43,6 @@ series:
           SELECT
             s.ID AS "___ID",
             s.GSE AS "GSE",
-            -- '<a href="#!series/' || s.ID || '">' || s.title || '</a>' AS "Title",
             s.title AS "Title",
             '<link table="series" queryName="Details" using="___ID" columns="ID" />' AS ";Title",
             o.title AS "Organism;<quick visible='true' />",
