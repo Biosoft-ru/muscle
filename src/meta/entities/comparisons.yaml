@@ -10,7 +10,7 @@ comparisons:
         autoIncrement: true
         primaryKey: true
     - title:
-        type: VARCHAR(50)
+        type: VARCHAR(100)
     - series:
         type: KEYTYPE
         reference: series

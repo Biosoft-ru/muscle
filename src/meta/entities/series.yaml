@@ -179,6 +179,28 @@ series:
           LEFT JOIN cells ON cells.ID = b.cell
           WHERE s.ID = <parameter:ID/>
           order by samples.ID
+  - Comparisons:
+      type: 1D_unknown
+      layout: '{"hideTitle":"true", "defaultPageLimit":30}'
+      invisible: true
+      roles: '@AllRoles'
+      code: |-
+          SELECT DISTINCT
+            c.ID AS "___ID",
+            c.title AS "Title",
+
+            '<a href="!table/conditions/Condition/ID=' || c1.id || '">' || c1.title || '</a>'
+            || '<hr class=''hr_relation'' />' ||
+            '<a href="!table/conditions/Condition/ID=' || c2.id || '">' || c2.title || '</a>'
+            AS "Relation",
+
+            c.comment AS "Comment;<quick visible='true' />"
+          FROM series s 
+          INNER JOIN comparisons c ON c.series = s.ID
+          INNER JOIN conditions c1 ON c1.ID = c.condition1
+          INNER JOIN conditions c2 ON c2.ID = c.condition2
+          WHERE s.ID = <parameter:ID/>
+          order by c.ID 
   operations:
   - AddRemoveCategory:
       records: 2
