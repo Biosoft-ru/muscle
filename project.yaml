@@ -15,6 +15,7 @@ muscle:
   - _welcome_
   - biosamples
   - cells
+  - comparisons
   - conditions
   - individuals
   - organisms
