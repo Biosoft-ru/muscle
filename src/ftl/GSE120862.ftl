@@ -2,7 +2,7 @@
 
 delete from series where GSE='GSE120862';
 
-INSERT INTO series(ID, GSE, PMID, organism, type, title, description, design)
+INSERT INTO series(ID, GSE, PMID, organism, type, title, description, design, comment)
 VALUES(1, 'GSE120862', 30779632, ${human}, ${rna_seq},
 'Contractile activity-specific transcriptome response to acute endurance exercise and training in human skeletal muscle', 
 
@@ -44,11 +44,13 @@ RNA-sequencing (84 samples in total; ~47 million reads/sample) was performed by 
  <li>trained – after a 2 month aerobic training programme;</li> 
  <li>the last symbol in file name – subject’s ID.</li>
  </ul>
- "?str}
+ "?str},
+ 
+ 'complete: expression; comparisons; DEGS, enrichment; clusters, enrichment; quality control'
  );
  
- -- ---------------------------------------------------------------------------
- -- individuals
+-- ---------------------------------------------------------------------------
+-- individuals
 
 delete from individuals where ID IN (1,2,3,4,5,6,7);
 
@@ -209,3 +211,18 @@ VALUES(${id}, ${GSM?str}, ${title?str}, ${rna_seq}, ${platform?str}, ${SRA?str},
 <@sample id=82 GSM='GSM3417385' condition='trained_baseline_Ex' individ=7 platform=Illumina_NextSeq_500 SRA='SRX4801276' SRR='SRR7967780' avgSpotLen=76 biosample='SAMN10180044' />
 <@sample id=83 GSM='GSM3417386' condition='trained_+1h_Ex' individ=7 platform=Illumina_NextSeq_500 SRA='SRX4801277' SRR='SRR7967781' avgSpotLen=76 biosample='SAMN10180043' />
 <@sample id=84 GSM='GSM3417387' condition='trained_+4h_Ex' individ=7 platform=Illumina_NextSeq_500 SRA='SRX4801278' SRR='SRR7967782' avgSpotLen=76 biosample='SAMN10180042' />
+
+-- ---------------------------------------------------------------------------
+-- expression
+
+
+-- ---------------------------------------------------------------------------
+-- DEGS, enrichment
+
+
+-- ---------------------------------------------------------------------------
+-- clusters, enrichment
+
+
+-- ---------------------------------------------------------------------------
+-- quality control

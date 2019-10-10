@@ -25,6 +25,8 @@ series:
         type: VARCHAR(4000)
     - design:
         type: VARCHAR(4000)
+    - comment:
+        type: VARCHAR(200)
   queries:
   - '*** Selection view ***':
       type: 1D
@@ -47,7 +49,8 @@ series:
             '<link table="series" queryName="Details" using="___ID" columns="ID" />' AS ";Title",
             o.title AS "Organism;<quick visible='true' />",
             s.type AS "Type",
-            s.description AS "Description;<quick visible='false' />"
+            s.description AS "Description;<quick visible='false' />",
+            s.comment AS "Comment;<quick visible='true' />"
           FROM series s
           LEFT JOIN organisms o ON o.id = s.organism
   - Details:

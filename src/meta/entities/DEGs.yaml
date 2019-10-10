@@ -1,0 +1,33 @@
+DEGs:
+  type: table
+  displayName: Differentialy expressed genes
+  besql: true
+  primaryKey: ID
+  scheme:
+    columns:
+    - ID:
+        type: KEYTYPE
+        autoIncrement: true
+        primaryKey: true
+    - comparison:
+        type: KEYTYPE
+        reference: comparisons
+    - analysis:
+        doc: description of analysis and its parameters
+        type: KEYTYPE
+        reference: analysis
+    - gene:
+        doc: gene symbol (GeneCards)
+        type: VARCHAR(20)
+    - logFC:
+        doc: log2 fold change
+        type: double
+    - Pvalue:
+        doc: Pvalue 
+        type: double
+        canBeNull: true
+    - FDR:
+        doc: False Discovery rate 
+        type: double
+        canBeNull: true
+  
