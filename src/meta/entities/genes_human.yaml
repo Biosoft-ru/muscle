@@ -1,0 +1,34 @@
+genes_human:
+  type: dictionary
+  displayName: Genes (human)
+  besql: true
+  primaryKey: ID
+  scheme:
+    columns:
+    - ID:
+        type: CHAR(15)
+        primaryKey: true
+        doc: ENSEMBL gene ID
+    - name:
+        type: VARCHAR(250)
+    - type:
+        type: VARCHAR(40)
+    - description:
+        type: VARCHAR(200)
+        canBeNull: true
+    - chromosome:
+        type: VARCHAR(50)
+        doc: Chromosome/scaffold name
+    - start:
+        type: INT
+    - end:
+        type: INT
+    - strand:
+        type: INT
+    - tss_count:
+        type: INT
+    indices:
+    - IDX_GENES_HUMAN_ID:
+        unique: true
+        columns: ID
+  queries: []
