@@ -12,6 +12,7 @@ muscle:
   - core:
       entities: []
   application:
+  - _genes_
   - _welcome_
   - biosamples
   - cells

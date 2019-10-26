@@ -31,4 +31,16 @@ genes_human:
     - IDX_GENES_HUMAN_ID:
         unique: true
         columns: ID
-  queries: []
+    - IDX_GENES_HUMAN_NAME:
+        columns: upper(name)
+    - IDX_GENES_HUMAN_DESCRIPTION:
+        columns: upper(description)
+  queries: 
+  - '*** Selection view ***':
+      type: 1D_unknown
+      roles: '@AllRoles'
+      code: |-
+          SELECT ID, name 
+          FROM genes_human g 
+          ORDER BY name
+  

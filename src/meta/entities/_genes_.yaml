@@ -1,0 +1,39 @@
+_genes_:
+  type: table
+  displayName: Genes
+  order: '0'
+  primaryKey: dummy
+  queries:
+  - '*** Selection view ***':
+      type: 1D_unknown
+      roles: '@AllRoles'
+      code: |-
+          SELECT ID, name 
+          FROM genes_human g 
+          ORDER BY name
+  - All records:
+      type: 1D_unknown
+      roles: '@AllRoles'
+      layout: '{"topForm":"GeneFilter"}'
+      code: |-
+          SELECT
+            g.ID AS "ID",
+            g.name AS "Name",
+            g.description AS "Description",
+            g.type AS "Type"
+          FROM genes_human g
+          
+          <if parameter="gene">
+          WHERE g.ID = upper('<parameter:gene/>') OR g.name LIKE upper('%<parameter:gene/>%') OR g.description LIKE upper('%<parameter:gene/>%')
+          </if>
+          
+          order by g.name
+      operations:
+      - GeneFilter
+  operations:
+  - GeneFilter:
+      type: Groovy
+      roles: [Administrator, Guest]
+      layout: '{"properties":"model"}'
+      file: operations.GeneFilter.groovy
+          
