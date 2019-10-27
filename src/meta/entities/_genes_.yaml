@@ -49,21 +49,6 @@ _genes_:
             g.type AS "Type"
           FROM genes_human g
           WHERE g.ID = '<parameter:ID/>'
-
-  - Details2:
-      type: 1D_unknown
-      invisible: true
-      roles: '@AllRoles'
-      code: |-
-          SELECT
-            g.ID AS "ID",
-            'Gene ' || g.name AS "PageTitle",
-            
-            g.name AS "Name",
-            g.description AS "Description",
-            g.type AS "Type"
-          FROM genes_human g
-          WHERE g.ID = '<parameter:ID/>'
           
   operations:
   - GeneFilter:

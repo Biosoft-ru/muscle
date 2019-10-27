@@ -180,7 +180,9 @@ series:
           LEFT JOIN treatments t ON t.ID = c.treatment
           LEFT JOIN tissues ON tissues.ID = b.tissue
           LEFT JOIN cells ON cells.ID = b.cell
-          WHERE s.ID = <parameter:ID/>
+          WHERE (1=1)
+            <if parameter="ID"> AND s.ID = <parameter:ID/> </if>
+            <if parameter="sample"> AND samples.ID = <parameter:sample/> </if>
           order by samples.ID
   - Comparisons:
       type: 1D_unknown

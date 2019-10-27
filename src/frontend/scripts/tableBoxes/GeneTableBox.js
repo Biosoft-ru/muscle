@@ -16,7 +16,7 @@ class GeneTableBox extends Component
     be5.ui.setTitle(this.title);
 
   	const steps = [
-		{title: "Expression", 		  url: '#!table/_genes_/Details2/ID=' + gene.ID.value},
+		{title: "Expression", 		  url: '#!table/gene2counts_human/Counts/gene=' + gene.ID.value},
 		{title: "Signatures", 		  url: '#!table/_genes_/Details2/ID=' + gene.ID.value},
   	];
 

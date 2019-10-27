@@ -20,3 +20,52 @@ gene2counts_human:
         columns: 
           - gene
           - sample
+          
+  queries:
+  - Counts:
+      type: 1D_unknown
+      invisible: true
+      roles: '@AllRoles'
+      code: |-
+          SELECT
+            counts.counts AS "Counts",
+            
+            sr.ID AS "___Series",
+            sr.GSE AS "Series",
+            '<link table="series" queryName="Details" using="ID" columns="___Series" />' AS ";Series",
+            
+            s.ID AS "___Sample",
+            s.GSM AS "Sample",
+            '<link table="series" queryName="Samples" using="sample" columns="___Sample" />' AS ";Sample",
+            s.title AS "Title",
+
+            i.code AS "Individ;<quick visible='false'/>",
+            i.age AS "Individ age;<quick visible='false'/>",
+            i.sex AS "Individ sex;<quick visible='false'/>",
+            i.stage AS "Individ stage;<quick visible='false'/>",
+            i.state AS "Individ state;<quick visible='false'/>",
+            i.comment AS "Individ comment;<quick visible='false'/>",
+
+            t.title AS "Treatment",
+            t.description AS "Treatment details;<quick visible='false' />",
+            t.comment AS "Treatment comment;<quick visible='false' />",
+            c.timePoint AS "Time point (min)",
+            c.status AS "Treatment status;<quick visible='false'/>",
+            c.comment AS "Treatment comment;<quick visible='false'/>",
+
+            tissues.title AS "Tissue;<quick visible='true'/>",
+            cells.title AS "Cells;<quick visible='faslse'/>"
+            
+          FROM gene2counts_human counts
+          JOIN samples s ON s.ID = counts.sample
+          JOIN series sr ON sr.ID = s.series
+          INNER JOIN biosamples b ON b.ID = s.biosample 
+          INNER JOIN individuals i ON i.ID = b.individual
+          INNER JOIN conditions c ON c.ID = b.condition
+          LEFT JOIN treatments t ON t.ID = c.treatment
+          LEFT JOIN tissues ON tissues.ID = b.tissue
+          LEFT JOIN cells ON cells.ID = b.cell
+          
+          WHERE counts.gene = '<parameter:gene/>'
+          ORDER BY s.GSM, s.title
+ 
