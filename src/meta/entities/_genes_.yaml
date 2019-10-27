@@ -11,6 +11,7 @@ _genes_:
           SELECT ID, name 
           FROM genes_human g 
           ORDER BY name
+        
   - All records:
       type: 1D_unknown
       roles: '@AllRoles'
@@ -19,6 +20,7 @@ _genes_:
           SELECT
             g.ID AS "ID",
             g.name AS "Name",
+            '<link table="_genes_" queryName="Details" using="ID" columns="ID" />' AS ";Name",
             g.description AS "Description",
             g.type AS "Type"
           FROM genes_human g
@@ -26,10 +28,43 @@ _genes_:
           <if parameter="gene">
           WHERE g.ID = upper('<parameter:gene/>') OR g.name LIKE upper('%<parameter:gene/>%') OR g.description LIKE upper('%<parameter:gene/>%')
           </if>
-          
+         
           order by g.name
       operations:
       - GeneFilter
+      
+  - Details:
+      type: 1D_unknown
+      layout: '{"tableBox":"gene", "mode":"named", "hideTitle":"true"}'
+      invisible: true
+      roles: '@AllRoles'
+      code: |-
+          SELECT
+            g.ID AS "ID",
+            'Gene ' || g.name AS "PageTitle",
+            
+            g.name AS "Name",
+            '<link table="_genes_" queryName="Details" using="ID" columns="ID" />' AS ";Name",
+            g.description AS "Description",
+            g.type AS "Type"
+          FROM genes_human g
+          WHERE g.ID = '<parameter:ID/>'
+
+  - Details2:
+      type: 1D_unknown
+      invisible: true
+      roles: '@AllRoles'
+      code: |-
+          SELECT
+            g.ID AS "ID",
+            'Gene ' || g.name AS "PageTitle",
+            
+            g.name AS "Name",
+            g.description AS "Description",
+            g.type AS "Type"
+          FROM genes_human g
+          WHERE g.ID = '<parameter:ID/>'
+          
   operations:
   - GeneFilter:
       type: Groovy

@@ -26,3 +26,4 @@ import '../css/index.css';
 
 import './tableBoxes/SeriesTableBox';
 import './tableBoxes/SeriesDescriptionTableBox';
+import './tableBoxes/GeneTableBox';
