@@ -34,7 +34,7 @@ public class GSECounts
 		
 		String header = (new BufferedReader(new FileReader(file))).readLine();
 
-		ArrayList fields = new ArrayList();
+		ArrayList<String> fields = new ArrayList<String>();
 		StringTokenizer tokens = new StringTokenizer(header, ", \t\r\n");
 		
 		while( tokens.hasMoreTokens() )
@@ -63,6 +63,16 @@ public class GSECounts
 		result.append(")" + "\r\n");
 		result.append("FROM '" + file.getAbsolutePath() + "' CSV HEADER;\r\n");
 		
+
+		// insert into gene2counts
+		result.append("\r\n\r\n");
+		for(int i=1; i<fields.size(); i++)
+		{
+			String srr = fields.get(i).toUpperCase();
+			result.append("DELETE FROM gene2counts_human WHERE sample = (SELECT s.ID FROM samples s WHERE s.srr='" + srr + "');\r\n");
+			result.append("INSERT INTO gene2counts_human (gene, sample, counts) SELECT c.ID, s.id, c." + srr + 
+					      " FROM samples s JOIN counts." + name + " c ON s.srr = '" + srr + "';\r\n\r\n");
+		}
 		
 		System.out.println(result.toString());
 	}

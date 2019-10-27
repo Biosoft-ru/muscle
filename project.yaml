@@ -19,6 +19,7 @@ muscle:
   - comparisons
   - conditions
   - individuals
+  - gene2counts_human
   - genes_human
   - organisms
   - platforms

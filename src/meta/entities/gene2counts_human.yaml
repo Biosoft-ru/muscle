@@ -1,0 +1,22 @@
+gene2counts_human:
+  type: table
+  displayName: Genes counts
+  besql: true
+  scheme:
+    columns:
+    - gene:
+        type: CHAR(15)
+        doc: ENSEMBL gene ID
+    - sample:
+        type: INT
+    - counts:
+        type: INT
+    indices:
+    - IDX_GENE2COUNTS_GENE:
+        columns: gene
+    - IDX_GENE2COUNTS_SAMPLE:
+        columns: sample
+    - IDX_GENE2COUNTS:
+        columns: 
+          - gene
+          - sample
