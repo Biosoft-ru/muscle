@@ -54,7 +54,9 @@ mvn be5:create-db
 mvn be5:sync
 если нужно только обновить/синхронизировать структуру базы данных с ее декларацией в be5
 
-mvn be5:data -DBE5_SCRIPT=script_name
+mvn be5:data -DBE5_SCRIPT=ftl_script_name
+
+$ mvn be5:data -DBE5_SCRIPT=GSE120862
 выполнение скрипта по имени переданного в параметре BE5_SCRIPT, по умолчанию из папка src/ftl
 ```
 
