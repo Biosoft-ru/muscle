@@ -194,9 +194,9 @@ series:
             c.ID AS "___ID",
             c.title AS "Title",
 
-            '<a href="!table/conditions/Condition/ID=' || c1.id || '">' || c1.title || '</a>'
+            '<a href="#!table/conditions/Condition/ID=' || c1.id || '">' || c1.title || '</a>'
             || '<hr class=''hr_relation'' />' ||
-            '<a href="!table/conditions/Condition/ID=' || c2.id || '">' || c2.title || '</a>'
+            '<a href="#!table/conditions/Condition/ID=' || c2.id || '">' || c2.title || '</a>'
             AS "Relation",
 
             c.comment AS "Comment;<quick visible='true' />"
