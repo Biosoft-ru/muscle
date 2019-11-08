@@ -25,5 +25,25 @@ conditions:
     - comment:
         type: VARCHAR(200)
         canBeNull: true
-  queries: []
+  queries:
+  - '*** Selection view ***':
+      type: 1D
+      roles: '@AllRoles'
+      code: |-
+          SELECT ID AS "ID",
+          TITLE AS "Title"
+          FROM conditions
+  - Condition:
+      type: 1D
+      roles: '@AllRoles'
+      code: |-
+          SELECT ID AS "ID",
+          TITLE AS "Title",
+          TREATMENT AS "Treatment",
+          TIMEPOINT AS "Timepoint",
+# TODO: Join with treatmentID
+          STATUS AS "Status"
+          FROM conditions
+          WHERE ID = <parameter:ID/>
   operations: []
+
