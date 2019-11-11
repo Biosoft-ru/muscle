@@ -169,7 +169,7 @@ series:
             c.comment AS "Treatment comment;<quick visible='false'/>",
 
             tissues.title AS "Tissue;<quick visible='true'/>",
-            cells.title AS "Cells;<quick visible='faslse'/>"
+            cells.title AS "Cells;<quick visible='false'/>"
             
           FROM series s 
           INNER JOIN samples ON samples.series = s.ID
