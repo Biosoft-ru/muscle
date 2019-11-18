@@ -21,49 +21,53 @@ ${"Examination of mRNA prior to, 4 h, and 8 h after acute intensive cycling sess
  </ul>
  "?str},
  
- );
+'complete: expression; comparisons; DEGS, enrichment; clusters, enrichment; quality control'
+  );
  
+ 
+
 -- ---------------------------------------------------------------------------
 -- individuals
 
-delete from individuals where ID IN (1,2);
+delete from individuals where ID IN (8,9);
 
-<#macro individ id, code, age, sex>
-INSERT INTO individuals(ID, code, age, organism,  sex, stage, state) VALUES(${id}, ${code?str}, ${age}, ${human}, ${sex?str}, ${adult}, ${healthy} );
+<#macro individ id, code, sex>
+INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(${id}, ${code?str}, ${human}, ${sex?str}, ${adult}, ${healthy} );
 </#macro>
 
-<@individ id=1 code=rep1 age=unknown sex='male' />
-<@individ id=2 code=rep2 age=unknown sex='male' />
+<@individ id=8 code='rep1' sex='male' />
+<@individ id=9 code='rep2' sex='male' />
 
 --- ---------------------------------------------------------------------------
 -- conditions
 
-delete from conditions WHERE ID <= 3;
+delete from conditions WHERE ID IN (13,14,15);
 
 <#macro condition id, title, status, time, treatment>
 INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${title?str}, ${status}, ${time}, ${treatment} );
 </#macro>
 
-<@condition id=1  title='H0' status=endurance-trained time=  0 treatment='NULL' />
-<@condition id=2  title='H2' status=endurance-trained time= 240 treatment=acute_intensive_cycling_session_(70 min, 70% V_O2_max)/> 
-<@condition id=3  title='H3' status=endurance-trained time= 480 treatment=acute_intensive_cycling_session_(70 min, 70% V_O2_max)/> 
+<@condition id=13  title='H0' status=trained time=  0 treatment='NULL' />
+<@condition id=14  title='H2' status=trained time= 240 treatment=3/> 
+<@condition id=15  title='H3' status=trained time= 480 treatment=3/>
+ 
 -- ---------------------------------------------------------------------------
 -- comparisons
-???delete from comparisons WHERE ID <= 3;
+delete from comparisons WHERE ID IN (10, 11, 12);
             
 <#macro comparison id, title, condition1, condition2 comment>
-INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 1, ${condition1}, ${condition2}, ${comment} );
+INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 2, ${condition1}, ${condition2}, ${comment} );
 </#macro>
 
-<@comparison id=1 title='Trained muscle after exercises, 4h' condition1=2 condition2=1 comment='NULL'?str /> 
-<@comparison id=2 title='Trained muscle after exercises, 8h' condition1=3 condition2=1 comment='NULL' /> 
-<@comparison id=3 title='Trained muscle after exercises, 4h and 8h' condition1=3 condition2=2 comment='NULL' /> 
+<@comparison id=10 title='Trained muscle after exercises, 4h' condition1=14 condition2=13 comment='NULL'?str /> 
+<@comparison id=11 title='Trained muscle after exercises, 8h' condition1=15 condition2=13 comment='NULL' /> 
+<@comparison id=12 title='Trained muscle after exercises, 4h and 8h' condition1=15 condition2=14 comment='NULL' /> 
 
 -- ---------------------------------------------------------------------------
 -- samples
 
-delete from biosamples where id <= 6;
-delete from samples where id <= 6;
+delete from biosamples where id IN (85, 86, 87, 88, 89, 90);
+delete from samples where id IN (85, 86, 87, 88, 89, 90);
 
 <#macro sample id, GSM, condition, individ, platform, SRA, SRR, avgSpotLen, biosample>
 
@@ -77,16 +81,16 @@ INSERT INTO biosamples(ID, title, individual, tissue, biosample, condition)
 );	
 
 INSERT INTO samples(ID, GSM, title, type, platform, SRA, SRR, avgSpotLen, biosample, series)
-VALUES(${id}, ${GSM?str}, ${title?str}, ${rna_seq}, ${platform?str}, ${SRA?str}, ${SRR?str}, ${avgSpotLen}, ${id}, 1);
+VALUES(${id}, ${GSM?str}, ${title?str}, ${rna_seq}, ${platform?str}, ${SRA?str}, ${SRR?str}, ${avgSpotLen}, ${id}, 2);
 
 </#macro>
 
-<@sample id=1 GSM='GSM2310424' condition='H0' individ=1 platform=Illumina_HiSeq_2000 SRA='SRX2163529' SRR='SRR4242588' avgSpotLen=45 biosample='SAMN05771871' />
-<@sample id=2 GSM='GSM2310425' condition='H0' individ=2 platform=Illumina_HiSeq_2000 SRA='SRX2163530' SRR='SRR4242589' avgSpotLen=45 biosample='SAMN05771870' />
-<@sample id=3 GSM='GSM2310426' condition='H2' individ=1 platform=Illumina_HiSeq_2000 SRA='SRX2163531' SRR='SRR4242590' avgSpotLen=45 biosample='SAMN05771869' />
-<@sample id=4 GSM='GSM2310427' condition='H2' individ=2 platform=Illumina_HiSeq_2000 SRA='SRX2163532' SRR='SRR4242591' avgSpotLen=45 biosample='SAMN05771868' />
-<@sample id=5 GSM='GSM2310428' condition='H3' individ=1 platform=Illumina_HiSeq_2000 SRA='SRX2163533' SRR='SRR4242592' avgSpotLen=45 biosample='SAMN05771867' />
-<@sample id=6 GSM='GSM2310429' condition='H3' individ=2 platform=Illumina_HiSeq_2000 SRA='SRX2163534' SRR='SRR4242593' avgSpotLen=46 biosample='SAMN05771866' />
+<@sample id=85 GSM='GSM2310424' condition='H0' individ=8 platform=Illumina_HiSeq_2000 SRA='SRX2163529' SRR='SRR4242588' avgSpotLen=45 biosample='SAMN05771871' />
+<@sample id=86 GSM='GSM2310425' condition='H0' individ=9 platform=Illumina_HiSeq_2000 SRA='SRX2163530' SRR='SRR4242589' avgSpotLen=45 biosample='SAMN05771870' />
+<@sample id=87 GSM='GSM2310426' condition='H2' individ=8 platform=Illumina_HiSeq_2000 SRA='SRX2163531' SRR='SRR4242590' avgSpotLen=45 biosample='SAMN05771869' />
+<@sample id=88 GSM='GSM2310427' condition='H2' individ=9 platform=Illumina_HiSeq_2000 SRA='SRX2163532' SRR='SRR4242591' avgSpotLen=45 biosample='SAMN05771868' />
+<@sample id=89 GSM='GSM2310428' condition='H3' individ=8 platform=Illumina_HiSeq_2000 SRA='SRX2163533' SRR='SRR4242592' avgSpotLen=45 biosample='SAMN05771867' />
+<@sample id=90 GSM='GSM2310429' condition='H3' individ=9 platform=Illumina_HiSeq_2000 SRA='SRX2163534' SRR='SRR4242593' avgSpotLen=46 biosample='SAMN05771866' />
 
 -- ---------------------------------------------------------------------------
 -- expression

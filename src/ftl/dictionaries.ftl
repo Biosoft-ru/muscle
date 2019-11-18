@@ -12,6 +12,8 @@ INSERT INTO tissues(id, title)         VALUES('1', 'skeletal muscle');
 INSERT INTO tissues(id, title, parent) VALUES('2', 'muscle vastus lateralis', 1);
 
 DELETE FROM treatments;
+
+-- GSE 120862
 INSERT INTO treatments(id, title, description) VALUES('1', 'aerobic training',
 ${'Aerobic training programme (2 month, 1 h/day, 5 sessions/week). 
 An exercise session (60 min, one-legged knee extension, ~65% of maximal power in the one-legged ramp test).'?str} );
@@ -20,3 +22,5 @@ INSERT INTO treatments(id, title, description) VALUES('2', 'aerobic exercise (60
 ${'An exercise session (60 min, one-legged knee extension, ~65% of maximal power in the one-legged ramp test) 
 started 2 h 35 min after a standardized breakfast. The participants ate a standardized lunch 1 h 20 min after the exercise session.'?str} ); 
 
+-- GSE86931
+INSERT INTO treatments(id, title) VALUES('3', 'acute intensive cycling session (70 min, 70% V O2 max)' );
