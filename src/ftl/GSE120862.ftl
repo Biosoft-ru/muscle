@@ -99,11 +99,11 @@ delete from comparisons WHERE ID <= 12;
 INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 1, ${condition1}, ${condition2}, ${comment} );
 </#macro>
 
-<@comparison id=1 title='Untrained legs before exersises'                           condition1=4 condition2=1 comment='OK - there is no difference between untrained legs before exersizes'?str /> 
-<@comparison id=2 title='Untrained leg, before and after exersise, 1h '             condition1=5 condition2=4 comment='NULL' /> 
-<@comparison id=3 title='Untrained leg, before and after exersise, 4h '             condition1=6 condition2=4 comment='NULL' /> 
-<@comparison id=4 title='Untrained leg, before and after exersise by other leg, 1h' condition1=2 condition2=1 comment='This comparison shows unspecific systemic responce on exercise.'?str /> 
-<@comparison id=5 title='Untrained leg, before and after exersise by other leg, 4h' condition1=3 condition2=1 comment='This comparison shows unspecific systemic responce on exercise.'?str /> 
+<@comparison id=1 title='Untrained legs before exersises'                           condition1=4 condition2=1 comment='OK - there is no difference between untrained legs before exercises'?str /> 
+<@comparison id=2 title='Untrained leg, before and after exercise, 1h '             condition1=5 condition2=4 comment='NULL' /> 
+<@comparison id=3 title='Untrained leg, before and after exercise, 4h '             condition1=6 condition2=4 comment='NULL' /> 
+<@comparison id=4 title='Untrained leg, before and after exercise by other leg, 1h' condition1=2 condition2=1 comment='This comparison shows unspecific systemic response on exercise.'?str /> 
+<@comparison id=5 title='Untrained leg, before and after exercise by other leg, 4h' condition1=3 condition2=1 comment='This comparison shows unspecific systemic response on exercise.'?str /> 
 
 -- ---------------------------------------------------------------------------
 -- samples
