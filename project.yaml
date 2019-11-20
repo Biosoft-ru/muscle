@@ -21,6 +21,7 @@ muscle:
   - individuals
   - gene2counts_human
   - genes_human
+  - measurements_tmp  
   - organisms
   - platforms
   - samples
@@ -34,5 +35,6 @@ muscle:
   - Post-db
   - GSE120862
   - GSE86931
+  - measurements_tmp  
   includes:
   - common
