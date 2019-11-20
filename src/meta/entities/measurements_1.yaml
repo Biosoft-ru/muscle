@@ -74,6 +74,19 @@ measurements_1:
                '<link table="measurements_1" queryName="Measurements" using="Title" columns="target" />' AS ";Measurements"
              FROM measurements_1 m
              GROUP BY m.target
+             ORDER BY m.target
+  - Literature:
+      type: 1D_unknown
+      roles: '@AllRoles'
+      code: |-
+             SELECT 
+               m.ref AS "Reference",
+               m.reference AS "Reference details;<quick visible='false'/>",
+               count(*) AS "Measurements",
+               '<link table="measurements_1" queryName="Measurements" using="Reference" columns="ref" />' AS ";Measurements"
+             FROM measurements_1 m
+             GROUP BY 1,2
+             ORDER BY 1
   - Measurements:
       invisible: true
       type: 1D_unknown
@@ -96,7 +109,7 @@ measurements_1:
             || COALESCE('Exercise intencity (VO2max): ' || m.exIntencity_VO2max || '<br/>', '')
             || COALESCE('Cofactor: ' || m.cofactor || '<br/>', '')
             || COALESCE('Time point (hours): ' || m.timePoint_hours || '<br/>', '') 
-            AS "Conditions",
+            AS "Conditions;<quick visible='true'/>",
 
             m.species AS "Species;<quick visible='false'/>",
             m.gender  AS "Gender;<quick visible='false'/>",
