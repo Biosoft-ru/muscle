@@ -24,3 +24,7 @@ started 2 h 35 min after a standardized breakfast. The participants ate a standa
 
 -- GSE86931
 INSERT INTO treatments(id, title) VALUES('3', 'acute intensive cycling session (70 min, 70% V O2 max)' );
+
+-- GSE107934
+INSERT INTO treatments(id, title) VALUES('4', 'Acute Aerobic Exercise' );
+INSERT INTO treatments(id, title) VALUES('5', 'Acute Resistance Exercise' );
