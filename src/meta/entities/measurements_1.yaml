@@ -1,0 +1,122 @@
+measurements_1:
+  type: table
+  displayName: Measurements
+  besql: true
+  primaryKey: ID
+  scheme:
+    columns:
+    - ID:
+        type: KEYTYPE
+        autoIncrement: true
+        primaryKey: true
+    - species:
+        type: VARCHAR(20)
+    - gender:
+        type: int
+        canBeNull: true
+    - trainingStatus:
+        type: VARCHAR(20)
+        canBeNull: true
+    - VO2max:
+        type: decimal
+        canBeNull: true
+    - tissue:
+        type: VARCHAR(50)
+        canBeNull: true
+    - fiberType:
+        type: VARCHAR(5)
+        canBeNull: true
+    - exType:
+        type: VARCHAR(50)
+        canBeNull: true
+    - exDuration_sec:
+        type: int
+        canBeNull: true
+    - exDuration_min:
+        type: decimal
+        canBeNull: true
+    - exIntencity_VO2max:
+        type: decimal
+        canBeNull: true
+    - cofactor:
+        type: VARCHAR(50)
+        canBeNull: true
+    - timePoint_hours:
+        type: decimal
+        canBeNull: true
+    - target:
+        type: VARCHAR(50)
+    - value:
+        doc: description of analysis and its parameters
+        type: VARCHAR(50)
+        canBeNull: true
+    - measureUnit:
+        type: VARCHAR(100)
+        canBeNull: true
+    - methodOfMeasurement:
+        type: VARCHAR(500)
+        canBeNull: true
+    - commentary:
+        type: VARCHAR(500)
+        canBeNull: true
+    - ref:
+        type: VARCHAR(50)
+    - reference:
+        type: VARCHAR(500)
+  queries:
+  - Targets:
+      type: 1D_unknown
+      roles: '@AllRoles'
+      code: |-
+             SELECT 
+               m.target AS "Title",
+               count(*) AS "Measurements",
+               '<link table="measurements_1" queryName="Measurements" using="Title" columns="target" />' AS ";Measurements"
+             FROM measurements_1 m
+             GROUP BY m.target
+  - Measurements:
+      invisible: true
+      type: 1D_unknown
+      roles: '@AllRoles'
+      code: |-
+          SELECT  
+            m.target AS "Title",
+            m.value  AS "Value",
+            m.measureUnit AS "Units", 
+            m.methodOfMeasurement AS "Method;<quick visible='false'/>",
+
+            m.species || '<br/>' 
+            || COALESCE('Gender: ' || m.gender || '<br/>', '') 
+            || COALESCE('Training status: ' || m.trainingStatus || '<br/>', '')
+            || COALESCE('VO2max: ' || m.VO2max || '<br/>', '')
+            || COALESCE('Tissue: ' || m.tissue || '<br/>', '')
+            || COALESCE('Fiber type: ' || m.fiberType || '<br/>', '')
+            || COALESCE('Exercise type: ' || m.exType || '<br/>', '')
+            || COALESCE('Exercise duration (min): ' || m.exDuration_min || '<br/>', '') 
+            || COALESCE('Exercise intencity (VO2max): ' || m.exIntencity_VO2max || '<br/>', '')
+            || COALESCE('Cofactor: ' || m.cofactor || '<br/>', '')
+            || COALESCE('Time point (hours): ' || m.timePoint_hours || '<br/>', '') 
+            AS "Conditions",
+
+            m.species AS "Species;<quick visible='false'/>",
+            m.gender  AS "Gender;<quick visible='false'/>",
+            m.trainingStatus  AS "Training status;<quick visible='false'/>",
+            m.VO2max  AS "VO2max;<quick visible='false'/>",
+            m.tissue  AS "Tissue;<quick visible='false'/>",
+            m.fiberType  AS "Fiber type;<quick visible='false'/>",
+            m.exType AS "Exercise type;<quick visible='false'/>",
+            m.exDuration_min AS "Exercise duration (min);<quick visible='false'/>",
+            m.exIntencity_VO2max AS "Exercise intencity (VO2max);<quick visible='false'/>",
+            m.cofactor AS "Cofactor;<quick visible='false'/>",
+            m.timePoint_hours AS "Time point (hours);<quick visible='false'/>",
+
+            m.commentary AS "Comment;<quick visible='true'/>",
+            m.ref AS "Reference;<quick visible='true'/>",
+            m.reference AS "Reference details;<quick visible='false'/>"
+            
+          FROM measurements_1 m
+          WHERE (1=1)
+          <if parameter="target">
+              AND m.target = <parameter:target/>
+          </if>
+        

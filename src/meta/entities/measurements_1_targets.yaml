@@ -1,0 +1,21 @@
+measurements_1_targets:
+  type: table
+  displayName: Measurement targets
+  besql: true
+  primaryKey: ID
+  scheme:
+    columns:
+    - ID:
+        type: KEYTYPE
+        autoIncrement: true
+        primaryKey: true
+    - title:
+        type: VARCHAR(50)
+    - target:
+        type: VARCHAR(50)
+    - description:
+        type: VARCHAR(500)
+        canBeNull: true
+    - commentary:
+        type: VARCHAR(500)
+        canBeNull: true

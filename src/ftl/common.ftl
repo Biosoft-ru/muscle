@@ -24,4 +24,4 @@
 <#macro condition_ref id, title>
 '<a href="!table/conditions/Condition/ID=' || id || '">' || title || '</a>'
 </#macro>
- 
+  
