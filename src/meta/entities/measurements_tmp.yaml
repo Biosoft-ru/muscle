@@ -77,3 +77,16 @@ measurements_tmp:
         type: VARCHAR(50)
     - reference:
         type: VARCHAR(500)
+    - PMID:
+        type: VARCHAR(10)
+        canBeNull: true
+    - misc1:
+        type: VARCHAR(100)
+        canBeNull: true
+    - misc2:
+        type: VARCHAR(100)
+        canBeNull: true
+    - misc3:
+        type: VARCHAR(100)
+        canBeNull: true
+        

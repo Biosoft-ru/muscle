@@ -63,6 +63,10 @@ measurements_1:
         type: VARCHAR(50)
     - reference:
         type: VARCHAR(500)
+    - PMID:
+        type: VARCHAR(10)
+        canBeNull: true
+
   queries:
   - Targets:
       type: 1D_unknown
