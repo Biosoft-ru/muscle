@@ -3,7 +3,7 @@
 delete from series where GSE='GSE123878';
 
 INSERT INTO series(ID, GSE, PMID, organism, type, title, description, design, comment)
-VALUES(4, 'GSE123878', 31589602, ${mouse}, ${rna_seq},
+VALUES(5, 'GSE123878', 31589602, ${mouse}, ${rna_seq},
 'Enhancer Profiling Reveals Regulators of Skeletal Muscle Identity and Reprogramming [RNA-seq]', 
 
 ${"Chromatin immunoprecipitation sequencing of H3K4me2, H3K27ac as well as, ATACseq and RNA-seq reveals regulatory landscapes across different muscle groups, as well as in response to chronic exercise or muscle PGC1a overexpression. This work defines the unique enhancer repetoire of skeletal muscle in vivo and reveals that highly divergent exercise-induced or PGC1a-driven epigenomic programs direct partially convergent transcriptional networks."?str},
@@ -65,7 +65,7 @@ INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${
 delete from comparisons WHERE ID IN (1, 2, 3);
             
 <#macro comparison id, title, condition1, condition2 comment>
-INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 2, ${condition1}, ${condition2}, ${comment} );
+INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 1, ${condition1}, ${condition2}, ${comment} );
 </#macro>
 
 <@comparison id=1 title='Untrained quadriceps after exercises' condition1=2 condition2=1 comment='NULL' /> 
@@ -89,7 +89,7 @@ INSERT INTO biosamples(ID, title, individual, tissue, biosample, condition)
 );	
 
 INSERT INTO samples(ID, GSM, title, type, platform, SRA, SRR, avgSpotLen, biosample, series)
-VALUES(${id}, ${GSM?str}, ${title?str}, ${rna_seq}, ${platform?str}, ${SRA?str}, ${SRR?str}, ${avgSpotLen}, ${id}, 3);
+VALUES(${id}, ${GSM?str}, ${title?str}, ${rna_seq}, ${platform?str}, ${SRA?str}, ${SRR?str}, ${avgSpotLen}, ${id}, 5);
 
 </#macro>
 
