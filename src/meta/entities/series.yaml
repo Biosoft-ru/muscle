@@ -148,9 +148,9 @@ series:
             ELSE '<a href="https://www.ncbi.nlm.nih.gov/sra?term=' || samples.SRA || '" target="_blank">' || samples.SRA || '</a>' 
             END AS "SRA (SRX);<quick visible='false'/>",
 
-            CASE WHEN samples.SRR IS NULL THEN NULL
-            ELSE '<a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=' || samples.SRR || '" target="_blank">' || samples.SRR || '</a>' 
-            END AS "SRA (SRR);<quick visible='false'/>",
+            COALESCE('<a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=' || samples.SRR || '" target="_blank">' || samples.SRR || '</a>', '') ||
+            COALESCE('<br/><a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=' || samples.SRR2 || '" target="_blank">' || samples.SRR2 || '</a>', '')
+            AS "SRA (SRR);<quick visible='false'/>",
 
             samples.avgSpotLen AS "Average spot length;<quick visible='false'/>",
 
