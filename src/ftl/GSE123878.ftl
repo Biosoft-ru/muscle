@@ -93,21 +93,83 @@ VALUES(${id}, ${GSM?str}, ${title?str}, ${rna_seq}, ${platform?str}, ${SRA?str},
 
 </#macro>
 
-<@sample id=183 GSM='GSM3515061' condition='control_quadriceps' individ=45 platform=Illumina_NextSeq_500 SRA='SRX5131601' SRR='SRR8319144;SRR8319145;SRR8319146;SRR8319147' avgSpotLen=75 biosample='SAMN10596284' />
-<@sample id=184 GSM='GSM3515062' condition='control_quadriceps' individ=46 platform=Illumina_NextSeq_500 SRA='SRX5131602' SRR='SRR8319148;SRR8319149;SRR8319150;SRR8319151' avgSpotLen=75 biosample='SAMN10596283' />
-<@sample id=185 GSM='GSM3515063' condition='control_quadriceps' individ=47 platform=Illumina_NextSeq_500 SRA='SRX5131603' SRR='SRR8319152;SRR8319153;SRR8319154;SRR8319155' avgSpotLen=75 biosample='SAMN10596282' />
-<@sample id=186 GSM='GSM3515064' condition='control_quadriceps' individ=48 platform=Illumina_NextSeq_500 SRA='SRX5131604' SRR='SRR8319156;SRR8319157;SRR8319158;SRR8319159' avgSpotLen=75 biosample='SAMN10596281' />
-<@sample id=187 GSM='GSM3515065' condition='control_quadriceps' individ=49 platform=Illumina_NextSeq_500 SRA='	SRX5131605' SRR='SRR8319160;SRR8319161;SRR8319162;SRR8319163' avgSpotLen=75 biosample='SAMN10596280' />
-<@sample id=188 GSM='GSM3515066' condition='exercise_quadriceps' individ=50 platform=Illumina_NextSeq_500 SRA='SRX5131606' SRR='SRR8319164;SRR8319165;SRR8319166;SRR8319167' avgSpotLen=75 biosample='SAMN10596279' />
-<@sample id=189 GSM='GSM3515067' condition='exercise_quadriceps' individ=51 platform=Illumina_NextSeq_500 SRA='SRX5131607' SRR='SRR8319168;SRR8319169;SRR8319170;SRR8319171' avgSpotLen=75 biosample='SAMN10596278' />
-<@sample id=190 GSM='GSM3515068' condition='exercise_quadriceps' individ=52 platform=Illumina_NextSeq_500 SRA='SRX5131608' SRR='SRR8319172;SRR8319173;SRR8319174;SRR8319175' avgSpotLen=75 biosample='SAMN10596277' />
-<@sample id=191 GSM='GSM3515069' condition='exercise_quadriceps' individ=53 platform=Illumina_NextSeq_500 SRA='SRX5131609' SRR='SRR8319176;SRR8319177;SRR8319178;SRR8319179' avgSpotLen=75 biosample='SAMN10595913' />
-<@sample id=192 GSM='GSM3515070' condition='exercise_quadriceps' individ=54 platform=Illumina_NextSeq_500 SRA='SRX5131610' SRR='SRR8319180;SRR8319181;SRR8319182;SRR8319183' avgSpotLen=75 biosample='SAMN10595912' />
-<@sample id=193 GSM='GSM3515071' condition='PGC1transgenic' individ=55 platform=Illumina_NextSeq_500 SRA='SRX5131611' SRR='SRR8319184;SRR8319185;SRR8319186;SRR8319187' avgSpotLen=75 biosample='SAMN10595911' />
-<@sample id=194 GSM='GSM3515072' condition='PGC1transgenic' individ=56 platform=Illumina_NextSeq_500 SRA='SRX5131612' SRR='SRR8319188;SRR8319189;SRR83191890;SRR8319191' avgSpotLen=75 biosample='SAMN10595910' />
-<@sample id=195 GSM='GSM3515073' condition='PGC1transgenic' individ=57 platform=Illumina_NextSeq_500 SRA='SRX5131613' SRR='SRR8319192;SRR8319193;SRR8319194;SRR8319195' avgSpotLen=75 biosample='SAMN10595909' />
-<@sample id=196 GSM='GSM3515074' condition='PGC1transgenic' individ=58 platform=Illumina_NextSeq_500 SRA='SRX5131614' SRR='SRR8319196;SRR8319197;SRR8319198;SRR8319199' avgSpotLen=75 biosample='SAMN10595908' />
-<@sample id=197 GSM='GSM3515075' condition='PGC1transgenic' individ=59 platform=Illumina_NextSeq_500 SRA='SRX5131615' SRR='SRR8319200;SRR8319201;SRR8319202;SRR8319203' avgSpotLen=51 biosample='SAMN10595907' />
+<@sample id=183 GSM='GSM3515061' condition='control_quadriceps' individ=45 platform=Illumina_NextSeq_500 SRA='SRX5131601' SRR='SRR8319144' avgSpotLen=75 biosample='SAMN10596284' />
+<@sample id=184 GSM='GSM3515062' condition='control_quadriceps' individ=46 platform=Illumina_NextSeq_500 SRA='SRX5131602' SRR='SRR8319148' avgSpotLen=75 biosample='SAMN10596283' />
+<@sample id=185 GSM='GSM3515063' condition='control_quadriceps' individ=47 platform=Illumina_NextSeq_500 SRA='SRX5131603' SRR='SRR8319152' avgSpotLen=75 biosample='SAMN10596282' />
+<@sample id=186 GSM='GSM3515064' condition='control_quadriceps' individ=48 platform=Illumina_NextSeq_500 SRA='SRX5131604' SRR='SRR8319156' avgSpotLen=75 biosample='SAMN10596281' />
+<@sample id=187 GSM='GSM3515065' condition='control_quadriceps' individ=49 platform=Illumina_NextSeq_500 SRA='	SRX5131605' SRR='SRR8319160' avgSpotLen=75 biosample='SAMN10596280' />
+<@sample id=188 GSM='GSM3515066' condition='exercise_quadriceps' individ=50 platform=Illumina_NextSeq_500 SRA='SRX5131606' SRR='SRR8319164' avgSpotLen=75 biosample='SAMN10596279' />
+<@sample id=189 GSM='GSM3515067' condition='exercise_quadriceps' individ=51 platform=Illumina_NextSeq_500 SRA='SRX5131607' SRR='SRR8319168' avgSpotLen=75 biosample='SAMN10596278' />
+<@sample id=190 GSM='GSM3515068' condition='exercise_quadriceps' individ=52 platform=Illumina_NextSeq_500 SRA='SRX5131608' SRR='SRR8319172' avgSpotLen=75 biosample='SAMN10596277' />
+<@sample id=191 GSM='GSM3515069' condition='exercise_quadriceps' individ=53 platform=Illumina_NextSeq_500 SRA='SRX5131609' SRR='SRR8319176' avgSpotLen=75 biosample='SAMN10595913' />
+<@sample id=192 GSM='GSM3515070' condition='exercise_quadriceps' individ=54 platform=Illumina_NextSeq_500 SRA='SRX5131610' SRR='SRR8319180' avgSpotLen=75 biosample='SAMN10595912' />
+<@sample id=193 GSM='GSM3515071' condition='PGC1transgenic' individ=55 platform=Illumina_NextSeq_500 SRA='SRX5131611' SRR='SRR8319184' avgSpotLen=75 biosample='SAMN10595911' />
+<@sample id=194 GSM='GSM3515072' condition='PGC1transgenic' individ=56 platform=Illumina_NextSeq_500 SRA='SRX5131612' SRR='SRR8319188' avgSpotLen=75 biosample='SAMN10595910' />
+<@sample id=195 GSM='GSM3515073' condition='PGC1transgenic' individ=57 platform=Illumina_NextSeq_500 SRA='SRX5131613' SRR='SRR8319192' avgSpotLen=75 biosample='SAMN10595909' />
+<@sample id=196 GSM='GSM3515074' condition='PGC1transgenic' individ=58 platform=Illumina_NextSeq_500 SRA='SRX5131614' SRR='SRR8319196' avgSpotLen=75 biosample='SAMN10595908' />
+<@sample id=197 GSM='GSM3515075' condition='PGC1transgenic' individ=59 platform=Illumina_NextSeq_500 SRA='SRX5131615' SRR='SRR8319200' avgSpotLen=51 biosample='SAMN10595907' />
+
+
+<#macro srr2 id, SRR>
+UPDATE samples SET srr2=${SRR?str} WHERE samples.id=${id};
+</#macro>
+
+<@srr2 id=183 SRR='SRR8319145' />
+<@srr2 id=184 SRR='SRR8319149' />
+<@srr2 id=185 SRR='SRR8319153' />
+<@srr2 id=186 SRR='SRR8319157' />
+<@srr2 id=187 SRR='SRR8319161' />
+<@srr2 id=188 SRR='SRR8319165' />
+<@srr2 id=189 SRR='SRR8319169' />
+<@srr2 id=190 SRR='SRR8319173' />
+<@srr2 id=191 SRR='SRR8319177' />
+<@srr2 id=192 SRR='SRR8319181' />
+<@srr2 id=193 SRR='SRR8319185' />
+<@srr2 id=194 SRR='SRR8319189' />
+<@srr2 id=195 SRR='SRR8319193' />
+<@srr2 id=196 SRR='SRR8319197' />
+<@srr2 id=197 SRR='SRR8319201' />
+
+<#macro srr3 id, SRR>
+UPDATE samples SET srr3=${SRR?str} WHERE samples.id=${id};
+</#macro>
+
+<@srr3 id=183 SRR='SRR8319146' />
+<@srr3 id=184 SRR='SRR8319150' />
+<@srr3 id=185 SRR='SRR8319154' />
+<@srr3 id=186 SRR='SRR8319158' />
+<@srr3 id=187 SRR='SRR8319162' />
+<@srr3 id=188 SRR='SRR8319166' />
+<@srr3 id=189 SRR='SRR8319170' />
+<@srr3 id=190 SRR='SRR8319174' />
+<@srr3 id=191 SRR='SRR8319178' />
+<@srr3 id=192 SRR='SRR8319182' />
+<@srr3 id=193 SRR='SRR8319186' />
+<@srr3 id=194 SRR='SRR8319190' />
+<@srr3 id=195 SRR='SRR8319194' />
+<@srr3 id=196 SRR='SRR8319198' />
+<@srr3 id=197 SRR='SRR8319202' />
+
+
+<#macro srr4 id, SRR>
+UPDATE samples SET srr4=${SRR?str} WHERE samples.id=${id};
+</#macro>
+
+<@srr4 id=183 SRR='SRR8319147' />
+<@srr4 id=184 SRR='SRR8319151' />
+<@srr4 id=185 SRR='SRR8319155' />
+<@srr4 id=186 SRR='SRR8319159' />
+<@srr4 id=187 SRR='SRR8319163' />
+<@srr4 id=188 SRR='SRR8319167' />
+<@srr4 id=189 SRR='SRR8319171' />
+<@srr4 id=190 SRR='SRR8319175' />
+<@srr4 id=191 SRR='SRR8319179' />
+<@srr4 id=192 SRR='SRR8319183' />
+<@srr4 id=193 SRR='SRR8319187' />
+<@srr4 id=194 SRR='SRR8319191' />
+<@srr4 id=195 SRR='SRR8319195' />
+<@srr4 id=196 SRR='SRR8319199' />
+<@srr4 id=197 SRR='SRR8319203' />
 
 -- ---------------------------------------------------------------------------
 -- expression
