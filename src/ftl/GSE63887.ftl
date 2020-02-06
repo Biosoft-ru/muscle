@@ -85,10 +85,17 @@ VALUES(${id}, ${GSM?str}, ${title?str}, ${rna_seq}, ${platform?str}, ${SRA?str},
 
 <@sample id=177 GSM='GSM1559439' condition='Male, vastus lateralis muscle, non-treated' individ=39 platform=Illumina_HiSeq_2500 SRA='SRX796615' SRR='SRR1693845' avgSpotLen=200 biosample='SAMN03253151' />
 <@sample id=178 GSM='GSM1559440' condition='Male, vastus lateralis muscle, non-treated' individ=40 platform=Illumina_HiSeq_2500 SRA='SRX796616' SRR='SRR1693846' avgSpotLen=200 biosample='SAMN03253150' />
-<@sample id=179 GSM='GSM1559441' condition='Male, vastus lateralis muscle, non-treated' individ=41 platform=Illumina_HiSeq_2500 SRA='SRX796617' SRR='SRR1693847;SRR1693848' avgSpotLen=200 biosample='SAMN03253149' />
+<@sample id=179 GSM='GSM1559441' condition='Male, vastus lateralis muscle, non-treated' individ=41 platform=Illumina_HiSeq_2500 SRA='SRX796617' SRR='SRR1693847' avgSpotLen=200 biosample='SAMN03253149' />
 <@sample id=180 GSM='GSM1559442' condition='Female, vastus lateralis muscle, non-treated' individ=42 platform=Illumina_HiSeq_2000 SRA='SRX796618' SRR='SRR1693849' avgSpotLen=200 biosample='SAMN03253146' />
 <@sample id=181 GSM='GSM1559443' condition='Female, vastus lateralis muscle, non-treated' individ=43 platform=Illumina_HiSeq_2000 SRA='SRX796619' SRR='SRR1693850' avgSpotLen=200 biosample='SAMN03253148' />
 <@sample id=182 GSM='GSM1559444' condition='Female, vastus lateralis muscle, non-treated' individ=44 platform=Illumina_HiSeq_2000 SRA='SRX796620' SRR='SRR1693851' avgSpotLen=200 biosample='SAMN03253147' />
+
+
+<#macro srr2 id, SRR>
+UPDATE samples SET srr2=${SRR?str} WHERE samples.id=${id};
+</#macro>
+
+<@srr2 id=179 SRR='SRR1693848' />
 
 
 -- ---------------------------------------------------------------------------
