@@ -111,7 +111,7 @@ VALUES(${id}, ${GSM?str}, ${title?str}, ${rna_seq}, ${platform?str}, ${SRA?str},
 
 
 <#macro srr2 id, SRR>
-UPDATE samples SET srr2=${SRR?str} WHERE GSM.id=${GSM};
+UPDATE samples SET srr2=${SRR?str} WHERE samples.id=${id};
 </#macro>
 
 <@srr2 id=198 SRR='SRR1377146' />
@@ -140,7 +140,7 @@ UPDATE samples SET srr2=${SRR?str} WHERE GSM.id=${GSM};
 
 
 <#macro srr3 id, SRR>
-UPDATE samples SET srr2=${SRR?str} WHERE GSM.id=${GSM};
+UPDATE samples SET srr3=${SRR?str} WHERE samples.id=${id};
 </#macro>
 
 <@srr3 id=198 SRR='SRR1377147' />
@@ -169,7 +169,7 @@ UPDATE samples SET srr2=${SRR?str} WHERE GSM.id=${GSM};
 
 
 <#macro srr4 id, SRR>
-UPDATE samples SET srr2=${SRR?str} WHERE GSM.id=${GSM};
+UPDATE samples SET srr4=${SRR?str} WHERE samples.id=${id};
 </#macro>
 
 <@srr4 id=198 SRR='SRR1377148' />
@@ -183,7 +183,6 @@ UPDATE samples SET srr2=${SRR?str} WHERE GSM.id=${GSM};
 <@srr4 id=206 SRR='SRR1377180' />
 <@srr4 id=207 SRR='SRR1377184' />
 <@srr4 id=208 SRR='SRR1377188' />
-
 
 
 -- ---------------------------------------------------------------------------
