@@ -2,8 +2,10 @@
 
 delete from series where GSE='GSE123878';
 
+<#assign SERIES_ID=6>
+
 INSERT INTO series(ID, GSE, PMID, organism, type, title, description, design, comment)
-VALUES(6, 'GSE123878', 31589602, ${mouse}, ${rna_seq},
+VALUES(${SERIES_ID}, 'GSE123878', 31589602, ${mouse}, ${rna_seq},
 'Enhancer Profiling Reveals Regulators of Skeletal Muscle Identity and Reprogramming [RNA-seq]', 
 
 ${"Chromatin immunoprecipitation sequencing of H3K4me2, H3K27ac as well as, ATACseq and RNA-seq reveals regulatory landscapes across different muscle groups, as well as in response to chronic exercise or muscle PGC1a overexpression. This work defines the unique enhancer repetoire of skeletal muscle in vivo and reveals that highly divergent exercise-induced or PGC1a-driven epigenomic programs direct partially convergent transcriptional networks."?str},
@@ -56,9 +58,9 @@ delete from conditions WHERE ID IN (31,32,33);
 INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${title?str}, ${status}, ${time}, ${treatment} );
 </#macro>
 
-<@condition id=31  title='Control_quadriceps' status=untrained time=  0 treatment='none'?str />
-<@condition id=32  title='Exercise_quadriceps' status=untrained time= 0 treatment='none'?str/> 
-<@condition id=33  title='PGC1a-transgenic' status=untrained time= 0 treatment='none'?str/>
+<@condition id=31  title='Control, quadriceps'          status=untrained time=0 treatment='NULL' />
+<@condition id=32  title='Exercise, quadriceps'         status=untrained time=0 treatment='NULL' /> 
+<@condition id=33  title='PGC1a-transgenic, quadriceps' status=untrained time=0 treatment='NULL' />
 
 -- ---------------------------------------------------------------------------
 -- comparisons
@@ -68,18 +70,18 @@ delete from comparisons WHERE ID IN (26, 27, 28);
 INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 1, ${condition1}, ${condition2}, ${comment} );
 </#macro>
 
-<@comparison id=26 title='Untrained quadriceps after exercises' condition1=2 condition2=1 comment='NULL' /> 
+<@comparison id=26 title='Untrained quadriceps after exercises'         condition1=2 condition2=1 comment='NULL' /> 
 <@comparison id=27 title='Untrained quadriceps, exercises vs transgene' condition1=2 condition2=3 comment='NULL' /> 
-<@comparison id=28 title='Untrained quadriceps, transgene effect' condition1=3 condition2=1 comment='NULL' /> 
+<@comparison id=28 title='Untrained quadriceps, transgene effect'       condition1=3 condition2=1 comment='NULL' /> 
 -- ---------------------------------------------------------------------------
 -- samples
 
 delete from biosamples where id IN (183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197);
 delete from samples where id IN (183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197);
 
-<#macro sample id, GSM, condition, individ, platform, SRA, SRR, avgSpotLen, biosample>
-
+<#macro sample id, GSM, condition, individ, SRA, SRR, avgSpotLen, biosample>
 <#local title = condition + '_' + individ>
+<#local platform = Illumina_NextSeq_500 />
 
 INSERT INTO biosamples(ID, title, individual, tissue, biosample, condition)
 (
@@ -89,26 +91,25 @@ INSERT INTO biosamples(ID, title, individual, tissue, biosample, condition)
 );	
 
 INSERT INTO samples(ID, GSM, title, type, platform, SRA, SRR, avgSpotLen, biosample, series)
-VALUES(${id}, ${GSM?str}, ${title?str}, ${rna_seq}, ${platform?str}, ${SRA?str}, ${SRR?str}, ${avgSpotLen}, ${id}, 5);
+VALUES(${id}, ${GSM?str}, ${title?str}, ${rna_seq}, ${platform?str}, ${SRA?str}, ${SRR?str}, ${avgSpotLen}, ${id}, ${SERIES_ID});
 
 </#macro>
 
-<@sample id=183 GSM='GSM3515061' condition='control_quadriceps' individ=45 platform=Illumina_NextSeq_500 SRA='SRX5131601' SRR='SRR8319144' avgSpotLen=75 biosample='SAMN10596284' />
-<@sample id=184 GSM='GSM3515062' condition='control_quadriceps' individ=46 platform=Illumina_NextSeq_500 SRA='SRX5131602' SRR='SRR8319148' avgSpotLen=75 biosample='SAMN10596283' />
-<@sample id=185 GSM='GSM3515063' condition='control_quadriceps' individ=47 platform=Illumina_NextSeq_500 SRA='SRX5131603' SRR='SRR8319152' avgSpotLen=75 biosample='SAMN10596282' />
-<@sample id=186 GSM='GSM3515064' condition='control_quadriceps' individ=48 platform=Illumina_NextSeq_500 SRA='SRX5131604' SRR='SRR8319156' avgSpotLen=75 biosample='SAMN10596281' />
-<@sample id=187 GSM='GSM3515065' condition='control_quadriceps' individ=49 platform=Illumina_NextSeq_500 SRA='	SRX5131605' SRR='SRR8319160' avgSpotLen=75 biosample='SAMN10596280' />
-<@sample id=188 GSM='GSM3515066' condition='exercise_quadriceps' individ=50 platform=Illumina_NextSeq_500 SRA='SRX5131606' SRR='SRR8319164' avgSpotLen=75 biosample='SAMN10596279' />
-<@sample id=189 GSM='GSM3515067' condition='exercise_quadriceps' individ=51 platform=Illumina_NextSeq_500 SRA='SRX5131607' SRR='SRR8319168' avgSpotLen=75 biosample='SAMN10596278' />
-<@sample id=190 GSM='GSM3515068' condition='exercise_quadriceps' individ=52 platform=Illumina_NextSeq_500 SRA='SRX5131608' SRR='SRR8319172' avgSpotLen=75 biosample='SAMN10596277' />
-<@sample id=191 GSM='GSM3515069' condition='exercise_quadriceps' individ=53 platform=Illumina_NextSeq_500 SRA='SRX5131609' SRR='SRR8319176' avgSpotLen=75 biosample='SAMN10595913' />
-<@sample id=192 GSM='GSM3515070' condition='exercise_quadriceps' individ=54 platform=Illumina_NextSeq_500 SRA='SRX5131610' SRR='SRR8319180' avgSpotLen=75 biosample='SAMN10595912' />
-<@sample id=193 GSM='GSM3515071' condition='PGC1transgenic' individ=55 platform=Illumina_NextSeq_500 SRA='SRX5131611' SRR='SRR8319184' avgSpotLen=75 biosample='SAMN10595911' />
-<@sample id=194 GSM='GSM3515072' condition='PGC1transgenic' individ=56 platform=Illumina_NextSeq_500 SRA='SRX5131612' SRR='SRR8319188' avgSpotLen=75 biosample='SAMN10595910' />
-<@sample id=195 GSM='GSM3515073' condition='PGC1transgenic' individ=57 platform=Illumina_NextSeq_500 SRA='SRX5131613' SRR='SRR8319192' avgSpotLen=75 biosample='SAMN10595909' />
-<@sample id=196 GSM='GSM3515074' condition='PGC1transgenic' individ=58 platform=Illumina_NextSeq_500 SRA='SRX5131614' SRR='SRR8319196' avgSpotLen=75 biosample='SAMN10595908' />
-<@sample id=197 GSM='GSM3515075' condition='PGC1transgenic' individ=59 platform=Illumina_NextSeq_500 SRA='SRX5131615' SRR='SRR8319200' avgSpotLen=51 biosample='SAMN10595907' />
-
+<@sample id=183 GSM='GSM3515061' condition='Control, quadriceps'  		  individ=45 SRA='SRX5131601' SRR='SRR8319144' avgSpotLen=75 biosample='SAMN10596284' />
+<@sample id=184 GSM='GSM3515062' condition='Control, quadriceps'  		  individ=46 SRA='SRX5131602' SRR='SRR8319148' avgSpotLen=75 biosample='SAMN10596283' />
+<@sample id=185 GSM='GSM3515063' condition='Control, quadriceps'  		  individ=47 SRA='SRX5131603' SRR='SRR8319152' avgSpotLen=75 biosample='SAMN10596282' />
+<@sample id=186 GSM='GSM3515064' condition='Control, quadriceps'  		  individ=48 SRA='SRX5131604' SRR='SRR8319156' avgSpotLen=75 biosample='SAMN10596281' />
+<@sample id=187 GSM='GSM3515065' condition='Control, quadriceps'  		  individ=49 SRA='SRX5131605' SRR='SRR8319160' avgSpotLen=75 biosample='SAMN10596280' />
+<@sample id=188 GSM='GSM3515066' condition='Exercise, quadriceps' 	 	  individ=50 SRA='SRX5131606' SRR='SRR8319164' avgSpotLen=75 biosample='SAMN10596279' />
+<@sample id=189 GSM='GSM3515067' condition='Exercise, quadriceps' 		  individ=51 SRA='SRX5131607' SRR='SRR8319168' avgSpotLen=75 biosample='SAMN10596278' />
+<@sample id=190 GSM='GSM3515068' condition='Exercise, quadriceps' 		  individ=52 SRA='SRX5131608' SRR='SRR8319172' avgSpotLen=75 biosample='SAMN10596277' />
+<@sample id=191 GSM='GSM3515069' condition='Exercise, quadriceps' 		  individ=53 SRA='SRX5131609' SRR='SRR8319176' avgSpotLen=75 biosample='SAMN10595913' />
+<@sample id=192 GSM='GSM3515070' condition='Exercise, quadriceps' 		  individ=54 SRA='SRX5131610' SRR='SRR8319180' avgSpotLen=75 biosample='SAMN10595912' />
+<@sample id=193 GSM='GSM3515071' condition='PGC1a-transgenic, quadriceps' individ=55 SRA='SRX5131611' SRR='SRR8319184' avgSpotLen=75 biosample='SAMN10595911' />
+<@sample id=194 GSM='GSM3515072' condition='PGC1a-transgenic, quadriceps' individ=56 SRA='SRX5131612' SRR='SRR8319188' avgSpotLen=75 biosample='SAMN10595910' />
+<@sample id=195 GSM='GSM3515073' condition='PGC1a-transgenic, quadriceps' individ=57 SRA='SRX5131613' SRR='SRR8319192' avgSpotLen=75 biosample='SAMN10595909' />
+<@sample id=196 GSM='GSM3515074' condition='PGC1a-transgenic, quadriceps' individ=58 SRA='SRX5131614' SRR='SRR8319196' avgSpotLen=75 biosample='SAMN10595908' />
+<@sample id=197 GSM='GSM3515075' condition='PGC1a-transgenic, quadriceps' individ=59 SRA='SRX5131615' SRR='SRR8319200' avgSpotLen=51 biosample='SAMN10595907' />
 
 <#macro srr2 id, SRR>
 UPDATE samples SET srr2=${SRR?str} WHERE samples.id=${id};

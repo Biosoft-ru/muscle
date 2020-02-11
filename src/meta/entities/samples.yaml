@@ -32,6 +32,12 @@ samples:
     - SRR2:
         type: VARCHAR(12)
         canBeNull: true
+    - SRR3:
+        type: VARCHAR(12)
+        canBeNull: true
+    - SRR4:
+        type: VARCHAR(12)
+        canBeNull: true
     - avgSpotLen:
         doc: average spot length for RNA-seq, extracted from SRA data
         type: SMALLINT

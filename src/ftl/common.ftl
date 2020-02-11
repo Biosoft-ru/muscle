@@ -1,4 +1,5 @@
 <#assign human=1>
+<#assign mouse=2>
 
 <#assign rna_seq='rna-seq'?str>
 

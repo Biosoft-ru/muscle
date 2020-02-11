@@ -149,7 +149,9 @@ series:
             END AS "SRA (SRX);<quick visible='false'/>",
 
             COALESCE('<a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=' || samples.SRR || '" target="_blank">' || samples.SRR || '</a>', '') ||
-            COALESCE('<br/><a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=' || samples.SRR2 || '" target="_blank">' || samples.SRR2 || '</a>', '')
+            COALESCE('<br/><a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=' || samples.SRR2 || '" target="_blank">' || samples.SRR2 || '</a>', '') ||
+            COALESCE('<br/><a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=' || samples.SRR3 || '" target="_blank">' || samples.SRR3 || '</a>', '') ||
+            COALESCE('<br/><a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=' || samples.SRR4 || '" target="_blank">' || samples.SRR4 || '</a>', '')
             AS "SRA (SRR);<quick visible='false'/>",
 
             samples.avgSpotLen AS "Average spot length;<quick visible='false'/>",
