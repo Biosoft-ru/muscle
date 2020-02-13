@@ -70,9 +70,9 @@ delete from comparisons WHERE ID IN (26, 27, 28);
 INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 1, ${condition1}, ${condition2}, ${comment} );
 </#macro>
 
-<@comparison id=26 title='Untrained quadriceps after exercises'         condition1=2 condition2=1 comment='NULL' /> 
-<@comparison id=27 title='Untrained quadriceps, exercises vs transgene' condition1=2 condition2=3 comment='NULL' /> 
-<@comparison id=28 title='Untrained quadriceps, transgene effect'       condition1=3 condition2=1 comment='NULL' /> 
+<@comparison id=26 title='Untrained quadriceps after exercises'         condition1=32 condition2=31 comment='NULL' /> 
+<@comparison id=27 title='Untrained quadriceps, exercises vs transgene' condition1=32 condition2=33 comment='NULL' /> 
+<@comparison id=28 title='Untrained quadriceps, transgene effect'       condition1=33 condition2=31 comment='NULL' /> 
 -- ---------------------------------------------------------------------------
 -- samples
 
