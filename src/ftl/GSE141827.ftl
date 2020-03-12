@@ -74,8 +74,6 @@ INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(${id}, ${
 <@individ id=96 code=U26_EDL sex='NULL' />
 <@individ id=96 code=U26_Sol sex='NULL' />
 
-
-
 --- ---------------------------------------------------------------------------
 -- conditions
 
@@ -85,18 +83,18 @@ delete from conditions WHERE ID IN (34,35);
 INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${title?str}, ${status}, ${time}, ${treatment} );
 </#macro>
 
-<@condition id=36 title=‘EDL, control'                       status=untrained time=0     treatment='NULL' />
-<@condition id=37 title=‘EDL, unloading 24h'                 status=untrained time=0     treatment=unloading_24h />
-<@condition id=38 title=‘EDL, unloading 3d'                  status=untrained time=0     treatment=unloading_3days />
-<@condition id=39 title=‘EDL, unloading 7d, recovery 24h'    status=untrained time=1440  treatment=unloading_7days_recovery_24h />
-<@condition id=40 title=‘EDL, unloading 7d, recovery 3d'     status=untrained time=4320  treatment=unloading_7days_recovery_3days />
-<@condition id=41 title=‘EDL, unloading 7d, recovery 7d'     status=untrained time=10080 treatment=unloading_7days_recovery_7days />
-<@condition id=42 title=‘Soleus, control'                    status=untrained time=0     treatment='NULL' />
-<@condition id=43 title=‘Soleus, unloading 24h'              status=untrained time=0     treatment=unloading_24h />
-<@condition id=44 title=‘Soleus, unloading 3d'               status=untrained time=0     treatment=unloading_3days />
-<@condition id=45 title=‘Soleus, unloading 7d, recovery 24h' status=untrained time=1440  treatment=unloading_7days_recovery_24h />
-<@condition id=46 title=‘Soleus, unloading 7d, recovery 3d'  status=untrained time=4320  treatment=unloading_7days_recovery_3days />
-<@condition id=47 title=‘Soleus, unloading 7d, recovery 7d'  status=untrained time=10080 treatment=unloading_7days_recovery_7days />
+<@condition id=36 title='EDL, control'                       status=untrained time=0     treatment='NULL' />
+<@condition id=37 title='EDL, unloading 24h'                 status=untrained time=0     treatment=unloading_24h />
+<@condition id=38 title='EDL, unloading 3d'                  status=untrained time=0     treatment=unloading_3days />
+<@condition id=39 title='EDL, unloading 7d, recovery 24h'    status=untrained time=1440  treatment=unloading_7days_recovery_24h />
+<@condition id=40 title='EDL, unloading 7d, recovery 3d'     status=untrained time=4320  treatment=unloading_7days_recovery_3days />
+<@condition id=41 title='EDL, unloading 7d, recovery 7d'     status=untrained time=10080 treatment=unloading_7days_recovery_7days />
+<@condition id=42 title='Soleus, control'                    status=untrained time=0     treatment='NULL' />
+<@condition id=43 title='Soleus, unloading 24h'              status=untrained time=0     treatment=unloading_24h />
+<@condition id=44 title='Soleus, unloading 3d'               status=untrained time=0     treatment=unloading_3days />
+<@condition id=45 title='Soleus, unloading 7d, recovery 24h' status=untrained time=1440  treatment=unloading_7days_recovery_24h />
+<@condition id=46 title='Soleus, unloading 7d, recovery 3d'  status=untrained time=4320  treatment=unloading_7days_recovery_3days />
+<@condition id=47 title='Soleus, unloading 7d, recovery 7d'  status=untrained time=10080 treatment=unloading_7days_recovery_7days />
 
 -- ---------------------------------------------------------------------------
 -- comparisons
