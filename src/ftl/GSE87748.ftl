@@ -58,13 +58,13 @@ INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${
 
 -- ---------------------------------------------------------------------------
 -- comparisons
-delete from comparisons WHERE ID IN (29);
+delete from comparisons WHERE ID IN (34);
             
 <#macro comparison id, title, condition1, condition2 comment>
-INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 2, ${condition1}, ${condition2}, ${comment} );
+INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, ${SERIES_ID}, ${condition1}, ${condition2}, ${comment} );
 </#macro>
 
-<@comparison id=29 title='Male leg, treated vs non-treated'   condition1=35 condition2=34 comment='NULL' /> 
+<@comparison id=34 title='Male leg, treated vs non-treated'   condition1=35 condition2=34 comment='NULL' /> 
 
 -- ---------------------------------------------------------------------------
 -- samples
@@ -72,9 +72,9 @@ INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALU
 delete from biosamples where id IN (221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240);
 delete from samples where id IN (221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240);
 
-<#macro sample id, GSM, condition, individ, platform, SRA, SRR, avgSpotLen, biosample>
+<#macro sample id, GSM, condition, individ, SRA, SRR, avgSpotLen, biosample>
 <#local title = condition + '_' + individ>
-<#local platform = Illumina_HighSeq_2500 />
+<#local platform = Illumina_HiSeq_2500 />
 
 INSERT INTO biosamples(ID, title, individual, tissue, biosample, condition)
 (
