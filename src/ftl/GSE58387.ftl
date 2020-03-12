@@ -50,7 +50,6 @@ INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${
 <@condition id=22  title='Male, left leg'    status=untrained time=0 treatment='NULL' />
 <@condition id=25  title='Female, right leg' status=untrained time=0 treatment='NULL' />
 <@condition id=26  title='Female, left leg'  status=untrained time=0 treatment='NULL' />
-
 -- ---------------------------------------------------------------------------
 -- comparisons
 delete from comparisons WHERE ID IN (19,22,29,30);
@@ -110,7 +109,6 @@ VALUES(${id}, ${GSM?str}, ${title?str}, ${rna_seq}, ${platform?str}, ${SRA?str},
 <@sample id=218 GSM='GSM1409707' condition='Female, right leg'  individ=65 SRA='SRX589544' SRR='SRR1377216' avgSpotLen=200 biosample='SAMN02850597' />
 <@sample id=219 GSM='GSM1409708' condition='Female, left leg' 	individ=65 SRA='SRX589545' SRR='SRR1377219' avgSpotLen=200 biosample='SAMN02850596' />
 <@sample id=220 GSM='GSM1409709' condition='Female, left leg' 	individ=65 SRA='SRX589546' SRR='SRR1377222' avgSpotLen=200 biosample='SAMN02850594' />
-
 
 <#macro srr2 id, SRR>
 UPDATE samples SET srr2=${SRR?str} WHERE samples.id=${id};
