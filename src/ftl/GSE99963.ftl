@@ -66,7 +66,7 @@ INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(${id}, ${
 --- ---------------------------------------------------------------------------
 -- conditions
 
-delete from conditions WHERE ID IN (34,35);
+delete from conditions WHERE ID IN (48,49,50);
 
 <#macro condition id, title, status, time, treatment>
 INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${title?str}, ${status}, ${time}, ${treatment} );
@@ -79,15 +79,15 @@ INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${
 
 -- ---------------------------------------------------------------------------
 -- comparisons
-delete from comparisons WHERE ID IN (29);
+delete from comparisons WHERE ID IN (46,47,48);
             
 <#macro comparison id, title, condition1, condition2 comment>
 INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 2, ${condition1}, ${condition2}, ${comment} );
 </#macro>
 
-<@comparison id=45 title='Sed-HFD vs Control' condition1=49 condition2=48 comment='NULL' /> 
-<@comparison id=46 title='Ex-HFD vs Control' condition1=50 condition2=48 comment='NULL' /> 
-<@comparison id=47 title='Ex-HFD vs Sed-HFD' condition1=50 condition2=49 comment='NULL' /> 
+<@comparison id=46 title='Sed-HFD vs Control' condition1=49 condition2=48 comment='NULL' /> 
+<@comparison id=47 title='Ex-HFD vs Control' condition1=50 condition2=48 comment='NULL' /> 
+<@comparison id=48 title='Ex-HFD vs Sed-HFD' condition1=50 condition2=49 comment='NULL' /> 
 
 -- ---------------------------------------------------------------------------
 -- samples
