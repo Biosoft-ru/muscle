@@ -30,54 +30,22 @@ delete from individuals where ID IN (117,118,119,120,121,122,123,124,125,126,127
 INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(${id}, ${code?str}, ${human}, ${sex?str}, ${adult}, ${healthy} );
 </#macro>
 
-<@individ id=117  code='CON_13_immediate'   sex='female' />
-<@individ id=117  code='CON_13_post'        sex='female' />
-<@individ id=117  code='CON_13_pre'         sex='female' />
-<@individ id=118  code='CON_16_immediate'   sex='female' />
-<@individ id=118  code='CON_16_post'        sex='female' />
-<@individ id=118  code='CON_16_pre'         sex='female' />
-<@individ id=119  code='CON_20_immediate'   sex='male' />
-<@individ id=119  code='CON_20_post'        sex='male' />
-<@individ id=119  code='CON_20_pre'         sex='male' />
-<@individ id=120  code='CON_3_immediate'    sex='male' />
-<@individ id=120  code='CON_3_post'         sex='male' />
-<@individ id=120  code='CON_3_pre'          sex='male' />
-<@individ id=121  code='CON_4_immediate'    sex='female' />
-<@individ id=121  code='CON_4_post'         sex='female' />
-<@individ id=121  code='CON_4_pre'          sex='female' />
-<@individ id=122  code='CON_5_immediate'    sex='male' />
-<@individ id=122  code='CON_5_post'         sex='male' />
-<@individ id=122  code='CON_5_pre'          sex='male' />
-<@individ id=123  code='CON_8_immediate'    sex='female' />
-<@individ id=123  code='CON_8_post'         sex='female' />
-<@individ id=123  code='CON_8_pre'          sex='female' />
-<@individ id=124  code='CON_9_immediate'    sex='male' />
-<@individ id=124  code='CON_9_post'         sex='male' />
-<@individ id=124  code='CON_9_pre'          sex='male' />
-<@individ id=125  code='HIST_11_immediate'  sex='male' />
-<@individ id=125  code='HIST_11_post'       sex='male' />
-<@individ id=125  code='HIST_11_pre'        sex='male' />
-<@individ id=126  code='HIST_12_immediate'  sex='female' />
-<@individ id=126  code='HIST_12_post'       sex='female' />
-<@individ id=126  code='HIST_12_pre'        sex='female' />
-<@individ id=127  code='HIST_15_immediate'  sex='male' />
-<@individ id=127  code='HIST_15_post'       sex='male' />
-<@individ id=127  code='HIST_15_pre'        sex='male' />
-<@individ id=128  code='HIST_17_immediate'  sex='male' />
-<@individ id=128  code='HIST_17_post'       sex='male' />
-<@individ id=128  code='HIST_17_pre'        sex='male' />
-<@individ id=129  code='HIST_2_immediate'   sex='male' />
-<@individ id=129  code='HIST_2_post'        sex='male' />
-<@individ id=129  code='HIST_2_pre'         sex='male' />
-<@individ id=130  code='HIST_4_immediate'   sex='male' />
-<@individ id=130  code='HIST_4_post'        sex='male' />
-<@individ id=130  code='HIST_4_pre'         sex='male' />
-<@individ id=131  code='HIST_5_immediate'   sex='male' />
-<@individ id=131  code='HIST_5_post'        sex='male' />
-<@individ id=131  code='HIST_5_pre'         sex='male' />
-<@individ id=132  code='HIST_7_immediate'   sex='female' />
-<@individ id=132  code='HIST_7_post'        sex='female' />
-<@individ id=132  code='HIST_7_pre'         sex='female' />
+<@individ id=117  code='CON_13'   sex='female' />
+<@individ id=118  code='CON_16'   sex='female' />
+<@individ id=119  code='CON_20'   sex='male' />
+<@individ id=120  code='CON_3'    sex='male' />
+<@individ id=121  code='CON_4'    sex='female' />
+<@individ id=122  code='CON_5'    sex='male' />
+<@individ id=123  code='CON_8'    sex='female' />
+<@individ id=124  code='CON_9'    sex='male' />
+<@individ id=125  code='HIST_11'  sex='male' />
+<@individ id=126  code='HIST_12'  sex='female' />
+<@individ id=127  code='HIST_15'  sex='male' />
+<@individ id=128  code='HIST_17'  sex='male' />
+<@individ id=129  code='HIST_2'   sex='male' />
+<@individ id=130  code='HIST_4'   sex='male' />
+<@individ id=131  code='HIST_5'   sex='male' />
+<@individ id=132  code='HIST_7'   sex='female' />
 
 --- ---------------------------------------------------------------------------
 -- conditions
