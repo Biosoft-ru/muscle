@@ -4,8 +4,10 @@ INSERT INTO organisms(id, title, latin) VALUES('2', 'mouse', 'Mus musculus');
 INSERT INTO organisms(id, title, latin) VALUES('3', 'rat',   'Rattus norvegicus');
 
 DELETE FROM platforms;
-INSERT INTO platforms(id, title, GPL) VALUES('1', 'Illumina HiSeq 2500', 'GPL16791');
-INSERT INTO platforms(id, title, GPL) VALUES('2', 'Illumina NextSeq 500', 'GPL18573');
+INSERT INTO platforms(id, title, GPL) VALUES('1', 'Illumina HiSeq 2500',   'GPL16791');
+INSERT INTO platforms(id, title, GPL) VALUES('2', 'Illumina NextSeq 500',  'GPL18573');
+INSERT INTO platforms(id, title, GPL) VALUES('3', 'Illumina HiSeq 2000',   'GPL11154');
+INSERT INTO platforms(id, title, GPL) VALUES('4', 'Illumina_MiSeq',        'GPL15520');
 
 DELETE FROM tissues;
 INSERT INTO tissues(id, title)         VALUES('1', 'skeletal muscle');
@@ -46,3 +48,8 @@ INSERT INTO treatments(id, title, description) VALUES('9', 'exercise, high-fat d
 
 INSERT INTO treatments(id, title, description) VALUES('10', 'sedentary, high-fat diet',
 'Sedentary; high-fat diet alone (Sed-HFD)');
+
+-- GSE134698
+INSERT INTO treatments(id, title, description) VALUES('11', 'rehabilitation training',
+'Exercise therapy in skeletal muscle from heart failure patients with reduced ejection fraction.');
+

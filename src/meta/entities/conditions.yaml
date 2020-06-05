@@ -17,7 +17,7 @@ conditions:
         canBeNull: true
     - timePoint:
         doc: time from treatment, generally in minutes
-        type: SMALLINT        
+        type: INT        
     - status:
         doc: training status (trained/untrained)
         type: VARCHAR(50)

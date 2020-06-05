@@ -32,12 +32,9 @@ delete from individuals where ID IN (111,112,113);
 INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(${id}, ${code?str}, ${human}, ${sex?str}, ${adult}, ${healthy} );
 </#macro>
 
-<@individ id=111  code='P1_before'   sex='Male' />
-<@individ id=111  code='P1_after'    sex='Male' />
-<@individ id=112  code='P4_before'   sex='Male' />
-<@individ id=112  code='P4_after'    sex='Male' />
-<@individ id=113  code='P5_before'   sex='Male' />
-<@individ id=113  code='P5_after'    sex='Male' />
+<@individ id=111  code='P1'   sex='Male' />
+<@individ id=112  code='P4'   sex='Male' />
+<@individ id=113  code='P5'   sex='Male' />
 
 --- ---------------------------------------------------------------------------
 -- conditions
@@ -48,18 +45,18 @@ delete from conditions WHERE ID IN (51,52);
 INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${title?str}, ${status}, ${time}, ${treatment} );
 </#macro>
 
-<@condition id=51 title='before_exercises' status=untrained time=0      treatment='NULL' />
-<@condition id=52 title='after_exercises'  status=untrained time=120060 treatment=rehabilitation_training />
+<@condition id=51 title='before_exercises' status=untrained time=0      treatment='null' />
+<@condition id=52 title='after_exercises'  status=untrained time=120060 treatment=11 />
 
 -- ---------------------------------------------------------------------------
 -- comparisons
-delete from comparisons WHERE ID IN (49);
+delete from comparisons WHERE ID IN (54);
             
 <#macro comparison id, title, condition1, condition2 comment>
-INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 2, ${condition1}, ${condition2}, ${comment} );
+INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, ${SERIES_ID}, ${condition1}, ${condition2}, ${comment} );
 </#macro>
 
-<@comparison id=49 title='after_exercises vs before_exercises' condition1=52 condition2=51 comment='NULL' /> 
+<@comparison id=54 title='after_exercises vs before_exercises' condition1=52 condition2=51 comment='NULL' /> 
 
 -- ---------------------------------------------------------------------------
 -- samples
@@ -67,7 +64,7 @@ INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALU
 delete from biosamples where id IN (311, 312, 313, 314, 315, 316);
 delete from samples where id IN (311, 312, 313, 314, 315, 316);
 
-<#macro sample id, GSM, condition, individ, platform, SRA, SRR, avgSpotLen, biosample>
+<#macro sample id, GSM, condition, individ, SRA, SRR, avgSpotLen, biosample>
 <#local title = condition + '_' + individ>
 <#local platform = Illumina_MiSeq />
 
