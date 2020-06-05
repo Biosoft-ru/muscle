@@ -8,6 +8,10 @@ connectionProfiles:
       connectionUrl: jdbc:postgresql://localhost:5433/muscle
       username: muscle
       password: muscle
+    ict:
+      connectionUrl: jdbc:postgresql://ict.biouml.org:2345/muscle
+      username: muscle
+      password: muscle
     uuinnk_local:
       connectionUrl: jdbc:postgresql://localhost:5432/muscle
       username: postgres

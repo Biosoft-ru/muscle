@@ -57,7 +57,7 @@ INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${
 delete from comparisons WHERE ID IN (25);
             
 <#macro comparison id, title, condition1, condition2 comment>
-INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 2, ${condition1}, ${condition2}, ${comment} );
+INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 5, ${condition1}, ${condition2}, ${comment} );
 </#macro>
 
 <@comparison id=25 title='Non-treated skeletal muscle, male vs female' condition1=29 condition2=30 comment='NULL' /> 

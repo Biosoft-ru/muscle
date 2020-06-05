@@ -25,7 +25,7 @@
   <dependency>
    <groupId>org.postgresql</groupId>
    <artifactId>postgresql</artifactId>
-   <version>42.0.0</version>
+   <version>42.2.12</version>
   </dependency>
 
   <dependency>
@@ -45,6 +45,21 @@
  <build>
  	<pluginManagement>
  		<plugins>
+
+        <plugin>
+            <groupId>com.developmentontheedge.be5</groupId>
+            <artifactId>be5-maven-plugin</artifactId>
+            <version>0.1.1-SNAPSHOT</version>
+            <!-- duplicate for (ModuleLoader2.class).getClassLoader().getResources(PROJECT_FILE_NAME); -->
+            <dependencies>
+                <dependency>
+                    <groupId>org.postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                    <version>[42.0.0,)</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+
  			<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
  			<plugin>
  				<groupId>org.eclipse.m2e</groupId>

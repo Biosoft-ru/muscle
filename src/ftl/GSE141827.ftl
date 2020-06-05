@@ -79,28 +79,28 @@ INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${
 
 -- ---------------------------------------------------------------------------
 -- comparisons
-delete from comparisons WHERE ID IN (30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45);
+delete from comparisons WHERE ID IN (35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50);
             
 <#macro comparison id, title, condition1, condition2 comment>
-INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 2, ${condition1}, ${condition2}, ${comment} );
+INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, ${SERIES_ID}, ${condition1}, ${condition2}, ${comment} );
 </#macro>
 
-<@comparison id=30 title='EDL, unloading 24h vs non-treated'                 condition1=37 condition2=36 comment='NULL' /> 
-<@comparison id=31 title='EDL, unloading 3d vs non-treated'                  condition1=38 condition2=36 comment='NULL' /> 
-<@comparison id=32 title='EDL, unloading 7d, recovery 24h vs non-treated'    condition1=39 condition2=36 comment='NULL' /> 
-<@comparison id=33 title='EDL, unloading 7d, recovery 3d vs non-treated'     condition1=40 condition2=36 comment='NULL' />
-<@comparison id=34 title='EDL, unloading 7d, recovery 7d vs non-treated'     condition1=41 condition2=36 comment='NULL' />
-<@comparison id=35 title='Soleus, unloading 24h vs non-treated'              condition1=43 condition2=42 comment='NULL' /> 
-<@comparison id=36 title='Soleus, unloading 3d vs non-treated'               condition1=44 condition2=42 comment='NULL' /> 
-<@comparison id=37 title='Soleus, unloading 7d, recovery 24h vs non-treated' condition1=45 condition2=42 comment='NULL' /> 
-<@comparison id=38 title='Soleus, unloading 7d, recovery 3d vs non-treated'  condition1=46 condition2=42 comment='NULL' />
-<@comparison id=39 title='Soleus, unloading 7d, recovery 7d vs non-treated'  condition1=47 condition2=42 comment='NULL' />
-<@comparison id=40 title='Non-treated, Soleus vs EDL'                        condition1=42 condition2=36 comment='NULL' /> 
-<@comparison id=41 title='Unloading 24h, Soleus vs EDL'                      condition1=43 condition2=37 comment='NULL' /> 
-<@comparison id=42 title='Unloading 3d, Soleus vs EDL'                       condition1=44 condition2=38 comment='NULL' /> 
-<@comparison id=43 title='Unloading 7d, recovery 24h, Soleus vs EDL'         condition1=45 condition2=39 comment='NULL' />
-<@comparison id=44 title='Unloading 7d, recovery 3d, Soleus vs EDL'          condition1=46 condition2=40 comment='NULL' />
-<@comparison id=45 title='Unloading 7d, recovery 7d, Soleus vs EDL'          condition1=47 condition2=41 comment='NULL' />
+<@comparison id=35 title='EDL, unloading 24h vs non-treated'                 condition1=37 condition2=36 comment='NULL' /> 
+<@comparison id=36 title='EDL, unloading 3d vs non-treated'                  condition1=38 condition2=36 comment='NULL' /> 
+<@comparison id=37 title='EDL, unloading 7d, recovery 24h vs non-treated'    condition1=39 condition2=36 comment='NULL' /> 
+<@comparison id=38 title='EDL, unloading 7d, recovery 3d vs non-treated'     condition1=40 condition2=36 comment='NULL' />
+<@comparison id=39 title='EDL, unloading 7d, recovery 7d vs non-treated'     condition1=41 condition2=36 comment='NULL' />
+<@comparison id=40 title='Soleus, unloading 24h vs non-treated'              condition1=43 condition2=42 comment='NULL' /> 
+<@comparison id=41 title='Soleus, unloading 3d vs non-treated'               condition1=44 condition2=42 comment='NULL' /> 
+<@comparison id=42 title='Soleus, unloading 7d, recovery 24h vs non-treated' condition1=45 condition2=42 comment='NULL' /> 
+<@comparison id=43 title='Soleus, unloading 7d, recovery 3d vs non-treated'  condition1=46 condition2=42 comment='NULL' />
+<@comparison id=44 title='Soleus, unloading 7d, recovery 7d vs non-treated'  condition1=47 condition2=42 comment='NULL' />
+<@comparison id=45 title='Non-treated, Soleus vs EDL'                        condition1=42 condition2=36 comment='NULL' /> 
+<@comparison id=46 title='Unloading 24h, Soleus vs EDL'                      condition1=43 condition2=37 comment='NULL' /> 
+<@comparison id=47 title='Unloading 3d, Soleus vs EDL'                       condition1=44 condition2=38 comment='NULL' /> 
+<@comparison id=48 title='Unloading 7d, recovery 24h, Soleus vs EDL'         condition1=45 condition2=39 comment='NULL' />
+<@comparison id=49 title='Unloading 7d, recovery 3d, Soleus vs EDL'          condition1=46 condition2=40 comment='NULL' />
+<@comparison id=50 title='Unloading 7d, recovery 7d, Soleus vs EDL'          condition1=47 condition2=41 comment='NULL' />
 
 -- ---------------------------------------------------------------------------
 -- samples
