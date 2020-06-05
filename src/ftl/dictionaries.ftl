@@ -37,5 +37,12 @@ ${'Twenty-three young, sedentary volunteers (Table 1) trained only one randomize
 INSERT INTO treatments(id, title, description) VALUES('7', 'unloading',
 'Unloading ...' );
 
-INSERT INTO treatments(id, title, description) VALUES('8', 'recovery afterunloading during 7 days',
+INSERT INTO treatments(id, title, description) VALUES('8', 'recovery after unloading during 7 days',
 'Recovery after unloading during 7 days.' );
+
+-- GSE99693
+INSERT INTO treatments(id, title, description) VALUES('9', 'exercise, high-fat diet',
+'Exercise; high-fat diet in combination with resistance exercise (Ex-HFD)');
+
+INSERT INTO treatments(id, title, description) VALUES('10', 'sedentary, high-fat diet',
+'Sedentary; high-fat diet alone (Sed-HFD)');

@@ -33,34 +33,20 @@ delete from individuals where ID IN (97,98,99,100,101,102,103,104,105,106,107,10
 INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(${id}, ${code?str}, ${human}, ${sex?str}, ${adult}, ${healthy} );
 </#macro>
 
-<@individ id=97  code='Pre_S1'   sex='Male' />
-<@individ id=97  code='Post_S1'  sex='Male' />
-<@individ id=98  code='Pre_S2'   sex='Male' />
-<@individ id=98  code='Post_S2'  sex='Male' />
-<@individ id=99  code='Pre_S3'   sex='Male' />
-<@individ id=99  code='Post_S3'  sex='Male' />
-<@individ id=100 code='Pre_S4'   sex='Male' />
-<@individ id=100 code='Post_S4'  sex='Male' />
-<@individ id=101 code='Pre_S5'   sex='Male' />
-<@individ id=101 code='Post_S5'  sex='Male' />
-<@individ id=102 code='Pre_S6'   sex='Male' />
-<@individ id=102 code='Post_S6'  sex='Male' />
-<@individ id=103 code='Pre_S7'   sex='Male' />
-<@individ id=103 code='Post_S7'  sex='Male' />
-<@individ id=104 code='Pre_S8'   sex='Male' />
-<@individ id=104 code='Post_S8'  sex='Male' />
-<@individ id=105 code='Pre_S9'   sex='Male' />
-<@individ id=105 code='Post_S9'  sex='Male' />
-<@individ id=106 code='Pre_S10'  sex='Male' />
-<@individ id=106 code='Post_S10' sex='Male' />
-<@individ id=107 code='Pre_S11'  sex='Male' />
-<@individ id=107 code='Post_S11' sex='Male' />
-<@individ id=108 code='Pre_S12'  sex='Male' />
-<@individ id=108 code='Post_S12' sex='Male' />
-<@individ id=109 code='Pre_S13'  sex='Male' />
-<@individ id=109 code='Post_S13' sex='Male' />
-<@individ id=110 code='Pre_S14'  sex='Male' />
-<@individ id=110 code='Post_S14' sex='Male' />
+<@individ id=97  code='S1'   sex='Male' />
+<@individ id=98  code='S2'   sex='Male' />
+<@individ id=99  code='S3'   sex='Male' />
+<@individ id=100 code='S4'   sex='Male' />
+<@individ id=101 code='S5'   sex='Male' />
+<@individ id=102 code='S6'   sex='Male' />
+<@individ id=103 code='S7'   sex='Male' />
+<@individ id=104 code='S8'   sex='Male' />
+<@individ id=105 code='S9'   sex='Male' />
+<@individ id=106 code='S10'  sex='Male' />
+<@individ id=107 code='S11'  sex='Male' />
+<@individ id=108 code='S12'  sex='Male' />
+<@individ id=109 code='S13'  sex='Male' />
+<@individ id=110 code='S14'  sex='Male' />
 
 
 --- ---------------------------------------------------------------------------
@@ -72,22 +58,22 @@ delete from conditions WHERE ID IN (48,49,50);
 INSERT INTO conditions(id, title, status, timePoint, treatment) VALUES(${id}, ${title?str}, ${status}, ${time}, ${treatment} );
 </#macro>
 
-<@condition id=48 title='control diet, pre-HFD' status=untrained time=0     treatment='NULL' />
-<@condition id=49 title='Sed-HFD, post'         status=untrained time=15840 treatment=HFD_9d />
-<@condition id=50 title='Ex-HFD, post'          status=untrained time=15840 treatment=HFD_9d_resistance_exercises_3_bouts />
+<@condition id=48 title='control diet, pre-HFD' status=untrained time=0     treatment='null' />
+<@condition id=49 title='Sed-HFD, post'         status=untrained time=15840 treatment=10 />
+<@condition id=50 title='Ex-HFD, post'          status=untrained time=15840 treatment=9 />
 
 
 -- ---------------------------------------------------------------------------
 -- comparisons
-delete from comparisons WHERE ID IN (46,47,48);
+delete from comparisons WHERE ID IN (51,52,53);
             
-<#macro comparison id, title, condition1, condition2 comment>
-INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALUES(${id}, ${title?str}, 2, ${condition1}, ${condition2}, ${comment} );
+<#macro comparison id, title, condition1, condition2>
+INSERT INTO comparisons(id, title, series, condition1, condition2) VALUES(${id}, ${title?str}, ${SERIES_ID}, ${condition1}, ${condition2});
 </#macro>
 
-<@comparison id=46 title='Sed-HFD vs Control' condition1=49 condition2=48 comment='NULL' /> 
-<@comparison id=47 title='Ex-HFD vs Control' condition1=50 condition2=48 comment='NULL' /> 
-<@comparison id=48 title='Ex-HFD vs Sed-HFD' condition1=50 condition2=49 comment='NULL' /> 
+<@comparison id=51 title='Sed-HFD vs Control' condition1=49 condition2=48 /> 
+<@comparison id=52 title='Ex-HFD vs Control' condition1=50 condition2=48  /> 
+<@comparison id=53 title='Ex-HFD vs Sed-HFD' condition1=50 condition2=49  /> 
 
 -- ---------------------------------------------------------------------------
 -- samples
@@ -95,9 +81,9 @@ INSERT INTO comparisons(id, title, series, condition1, condition2, comment) VALU
 delete from biosamples where id IN (283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310);
 delete from samples where id IN (283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310);
 
-<#macro sample id, GSM, condition, individ, platform, SRA, SRR, avgSpotLen, biosample>
+<#macro sample id, GSM, condition, individ, SRA, SRR, avgSpotLen, biosample>
 <#local title = condition + '_' + individ>
-<#local platform = Illumina_HighSeq_2500 />
+<#local platform = Illumina_HiSeq_2500 />
 
 INSERT INTO biosamples(ID, title, individual, tissue, biosample, condition)
 (
