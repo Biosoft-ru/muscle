@@ -1,5 +1,6 @@
 <#assign human=1>
 <#assign mouse=2>
+<#assign rat=3>
 
 <#assign rna_seq='rna-seq'?str>
 
@@ -21,8 +22,9 @@
  
 <#assign trained='trained'?str>
 <#assign untrained='untrained'?str>
- 
-<#macro condition_ref id, title>
+
+ <#macro condition_ref id, title>
 '<a href="!table/conditions/Condition/ID=' || id || '">' || title || '</a>'
 </#macro>
-  
+
+<#setting number_format="computer">    

@@ -32,3 +32,10 @@ INSERT INTO treatments(id, title) VALUES('5', 'Acute Resistance Exercise' );
 -- GSE60591
 INSERT INTO treatments(id, title, description) VALUES('6', 'training',
 ${'Twenty-three young, sedentary volunteers (Table 1) trained only one randomized leg during 3 months, and the other leg was used as an untrained intraindividual control leg. Two one-legged knee-extension performance tests were conducted before and after the training period. Skeletal muscle biopsies from vastus lateralis were taken before and 24h after the last training session from both legs. The post-training performance tests were conducted 3–6 d after the biopsies.'?str} );
+
+-- GSE141827
+INSERT INTO treatments(id, title, description) VALUES('7', 'unloading',
+'Unloading ...' );
+
+INSERT INTO treatments(id, title, description) VALUES('8', 'recovery afterunloading during 7 days',
+'Recovery after unloading during 7 days.' );
