@@ -15,7 +15,7 @@ INSERT INTO tissues(id, title, parent) VALUES('2', 'muscle vastus lateralis', 1)
 
 DELETE FROM treatments;
 
--- GSE 120862
+-- GSE120862
 INSERT INTO treatments(id, title, description) VALUES('1', 'aerobic training',
 ${'Aerobic training programme (2 month, 1 h/day, 5 sessions/week). 
 An exercise session (60 min, one-legged knee extension, ~65% of maximal power in the one-legged ramp test).'?str} );
@@ -53,3 +53,9 @@ INSERT INTO treatments(id, title, description) VALUES('10', 'sedentary, high-fat
 INSERT INTO treatments(id, title, description) VALUES('11', 'rehabilitation training',
 'Exercise therapy in skeletal muscle from heart failure patients with reduced ejection fraction.');
 
+-- GSE71972
+INSERT INTO treatments(id, title, description) VALUES('12', 'knee-extension exercise',
+'One 60-min bout of moderate-intensity single-leg knee-extension exercise without drug.');
+
+INSERT INTO treatments(id, title, description) VALUES('13', 'histamine receptor blocade and knee-extension exercise',
+'H1/H2-histamine receptor blockade prior to exercise and one 60-min bout of moderate-intensity single-leg knee-extension exercise.');
