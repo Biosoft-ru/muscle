@@ -14,7 +14,7 @@
 <#assign Illumina_HiSeq_2500  =1>
 <#assign Illumina_NextSeq_500 =2>
 <#assign Illumina_HiSeq_2000  =3> 
-<#assign Illumina_MiSeq       =43> 
+<#assign Illumina_MiSeq       =4> 
 
 <#assign muscle_VL=2>
 
