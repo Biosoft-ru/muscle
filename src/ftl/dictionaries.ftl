@@ -59,3 +59,15 @@ INSERT INTO treatments(id, title, description) VALUES('12', 'knee-extension exer
 
 INSERT INTO treatments(id, title, description) VALUES('13', 'histamine receptor blocade and knee-extension exercise',
 'H1/H2-histamine receptor blockade prior to exercise and one 60-min bout of moderate-intensity single-leg knee-extension exercise.');
+
+-- GSE108643
+INSERT INTO treatments(id, title, description) VALUES('14', 'acute bout of cycling exercise',
+'Acute bout of cycling exercise (50% VO2max, expending ~650 kcal).');
+
+-- GSE97084
+INSERT INTO treatments(id, title, description) VALUES('15', 'HIIT',
+'HIIT - high-intensity aerobic interval, 3 days per week of cycling (4 × 4 min at >90% of peak oxygen consumption [VO2 peak] with 3 min pedaling at no load) and 2 days per week of treadmill walking (45 min at 70% of VO2 peak).');
+INSERT INTO treatments(id, title, description) VALUES('16', 'RT',
+'RT - resistance training, lower and upper body exercises (4 sets of 8–12 repetitions) 2 days each per week.');
+INSERT INTO treatments(id, title, description) VALUES('17', 'CT',
+'CT - combined exercise training, underwent a 12-week sedentary period (SED) and wore accelerometers to record any structured activity. Following SED, participants underwent metabolic studies and began CT of 5 days per week cycling (30 min at 70% VO2 peak) and 4 days per week weight lifting with fewer repetitions than RT.');
