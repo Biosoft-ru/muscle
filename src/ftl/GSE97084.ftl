@@ -5,7 +5,7 @@ delete from series where GSE='GSE97084';
 <#assign SERIES_ID=14>
 
 INSERT INTO series(ID, GSE, PMID, organism, type, title, description, design, comment)
-VALUES(${SERIES_ID}, 'GSE97084', ${human}, ${rna_seq}, 'Enhanced Protein Translation Underlies Improved Metabolic and Physical Adaptations to Different Exercise Training Modes in Young and Old Humans', 
+VALUES(${SERIES_ID}, 'GSE97084', 28273480, ${human}, ${rna_seq}, 'Enhanced Protein Translation Underlies Improved Metabolic and Physical Adaptations to Different Exercise Training Modes in Young and Old Humans', 
 
 ${"The molecular transducers of benefits from different exercise modalities remain incompletely defined. Here we report that 12 weeks of high-intensity aerobic interval (HIIT), resistance (RT), and combined exercise training enhanced insulin sensitivity and lean mass, but only HIIT and combined training improved aerobic capacity and skeletal muscle mitochondrial respiration. HIIT revealed a more robust increase in gene transcripts than other exercise modalities, particularly in older adults, although little overlap with corresponding individual protein abundance was noted. HIIT reversed many age-related differences in the proteome, particularly of mitochondrial proteins in concert with increased mitochondrial protein synthesis. Both RT and HIIT enhanced proteins involved in translational machinery irrespective of age. Only small changes of methylation of DNA promoter regions were observed. We provide evidence for predominant exercise regulation at the translational level, enhancing translational capacity and proteome abundance to explain phenotypic gains in muscle mitochondrial function and hypertrophy in all ages. Males and females were involved in experiments, but there is no clear info neither in GSE, nor in the article. "?str},
 
@@ -27,62 +27,62 @@ CT - combined exercise training
 
 delete from individuals where ID IN (159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210);
 
-<#macro individ id, code, sex>
-INSERT INTO individuals(ID, code, organism,  sex, stage, state) VALUES(${id}, ${code?str}, ${human}, ${sex?str}, ${adult}, ${healthy} );
+<#macro individ id, code, stage>
+INSERT INTO individuals(ID, code, organism, stage, state) VALUES(${id}, ${code?str}, ${human}, ${stage?str}, ${healthy} );
 </#macro>
 
-<@individ id=159	code ='10B Young Combined'		sex='unknown' />
-<@individ id=160	code ='11A Young HIIT'			sex='unknown' />
-<@individ id=161	code ='13A Young Resistance'	sex='unknown' />
-<@individ id=162	code ='14B Young Combined'		sex='unknown' />
-<@individ id=163	code ='15A Young Resistance'	sex='unknown' />
-<@individ id=164	code ='16A Young Resistance'	sex='unknown' />
-<@individ id=165	code ='17A Young HIIT'			sex='unknown' />
-<@individ id=166	code ='18A Young HIIT'			sex='unknown' />
-<@individ id=167	code ='19A Young Resistance'	sex='unknown' />
-<@individ id=168	code ='1B Old Combined'			sex='unknown' />
-<@individ id=169	code ='20B Old Combined'		sex='unknown' />
-<@individ id=170	code ='21B Young Combined'		sex='unknown' />
-<@individ id=171	code ='22A Old HIIT'			sex='unknown' />
-<@individ id=172	code ='23A Young HIIT'			sex='unknown' />
-<@individ id=173	code ='24A Young HIIT'			sex='unknown' />
-<@individ id=174	code ='25A Young Resistance'	sex='unknown' />
-<@individ id=175	code ='26A Young HIIT'			sex='unknown' />
-<@individ id=176	code ='27B Young Combined'		sex='unknown' />
-<@individ id=177	code ='28A Old Resistance'		sex='unknown' />
-<@individ id=178	code ='29A Young Resistance'	sex='unknown' />
-<@individ id=179	code ='2B Young Combined'		sex='unknown' />
-<@individ id=180	code ='30A Young Resistance'	sex='unknown' />
-<@individ id=181	code ='31B Young Combined'		sex='unknown' />
-<@individ id=182	code ='32A Young HIIT'			sex='unknown' />
-<@individ id=183	code ='33A Young Resistance'	sex='unknown' />
-<@individ id=184	code ='34A Old Resistance'		sex='unknown' />
-<@individ id=185	code ='35A Young HIIT'			sex='unknown' />
-<@individ id=186	code ='36B Young Combined'		sex='unknown' />
-<@individ id=187	code ='37B Old Combined'		sex='unknown' />
-<@individ id=188	code ='38A Young Resistance'	sex='unknown' />
-<@individ id=189	code ='39A Young HIIT'			sex='unknown' />
-<@individ id=190	code ='3A Young Resistance'		sex='unknown' />
-<@individ id=191	code ='40A Young HIIT'			sex='unknown' />
-<@individ id=192	code ='41B Young Combined'		sex='unknown' />
-<@individ id=193	code ='42A Old HIIT'			sex='unknown' />
-<@individ id=194	code ='43A Old Resistance'		sex='unknown' />
-<@individ id=195	code ='44A Old Resistance'		sex='unknown' />
-<@individ id=196	code ='45A Old HIIT'			sex='unknown' />
-<@individ id=197	code ='46B Old Combined'		sex='unknown' />
-<@individ id=198	code ='47A Old HIIT'			sex='unknown' />
-<@individ id=199	code ='48B Old Combined'		sex='unknown' />
-<@individ id=200	code ='49A Old Resistance'		sex='unknown' />
-<@individ id=201	code ='4A Old HIIT'				sex='unknown' />
-<@individ id=202	code ='50A Old Resistance'		sex='unknown' />
-<@individ id=203	code ='51A Old HIIT'			sex='unknown' />
-<@individ id=204	code ='52A Old HIIT'			sex='unknown' />
-<@individ id=205	code ='53A Old HIIT'			sex='unknown' />
-<@individ id=206	code ='5B Old Combined'			sex='unknown' />
-<@individ id=207	code ='6A Young HIIT'			sex='unknown' />
-<@individ id=208	code ='7B Old Combined'			sex='unknown' />
-<@individ id=209	code ='8A Old Resistance'		sex='unknown' />
-<@individ id=210	code ='9A Old Resistance'		sex='unknown' />
+<@individ id=159	code ='10' stage='young' />
+<@individ id=160	code ='11' stage='young' />
+<@individ id=161	code ='13' stage='young' />
+<@individ id=162	code ='14' stage='young' />
+<@individ id=163	code ='15' stage='young' />
+<@individ id=164	code ='16' stage='young' />
+<@individ id=165	code ='17' stage='young' />
+<@individ id=166	code ='18' stage='young' />
+<@individ id=167	code ='19' stage='young' />
+<@individ id=168	code ='1'  stage ='old'  />
+<@individ id=169	code ='20' stage ='old'  />
+<@individ id=170	code ='21' stage='young' />
+<@individ id=171	code ='22' stage ='old'  />
+<@individ id=172	code ='23' stage='young' />
+<@individ id=173	code ='24' stage='young' />
+<@individ id=174	code ='25' stage='young' />
+<@individ id=175	code ='26' stage='young' />
+<@individ id=176	code ='27' stage='young' />
+<@individ id=177	code ='28' stage ='old'	 />
+<@individ id=178	code ='29' stage='young' />
+<@individ id=179	code ='2'  stage='young' />
+<@individ id=180	code ='30' stage='young' />
+<@individ id=181	code ='31' stage='young' />
+<@individ id=182	code ='32' stage='young' />
+<@individ id=183	code ='33' stage='young' />
+<@individ id=184	code ='34' stage ='old'	 />
+<@individ id=185	code ='35' stage='young' />
+<@individ id=186	code ='36' stage='young' />
+<@individ id=187	code ='37' stage ='old'  />
+<@individ id=188	code ='38' stage='young' />
+<@individ id=189	code ='39' stage='young' />
+<@individ id=190	code ='3'  stage='young' />
+<@individ id=191	code ='40' stage='young' />
+<@individ id=192	code ='41' stage='young' />
+<@individ id=193	code ='42' stage ='old'  />
+<@individ id=194	code ='43' stage ='old'	 />
+<@individ id=195	code ='44' stage ='old'	 />
+<@individ id=196	code ='45' stage ='old'  />
+<@individ id=197	code ='46' stage ='old'  />
+<@individ id=198	code ='47' stage ='old'  />
+<@individ id=199	code ='48' stage ='old'  />
+<@individ id=200	code ='49' stage ='old'	 />
+<@individ id=201	code ='4'  stage ='old'  />
+<@individ id=202	code ='50' stage ='old'	 />
+<@individ id=203	code ='51' stage ='old'  />
+<@individ id=204	code ='52' stage ='old'  />
+<@individ id=205	code ='53' stage ='old'  />
+<@individ id=206	code ='5'  stage ='old'  />
+<@individ id=207	code ='6'  stage='young' />
+<@individ id=208	code ='7'  stage ='old'  />
+<@individ id=209	code ='8'  stage ='old'	 />
+<@individ id=210	code ='9'  stage ='old'	 />
 
 --- ---------------------------------------------------------------------------
 -- conditions
