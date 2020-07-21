@@ -4,6 +4,7 @@ dev.yaml
 
 /.project
 /target
+/tmp
 
 .npmyrc
 

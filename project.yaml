@@ -47,6 +47,8 @@ muscle:
   - GSE99963
   - GSE134698
   - GSE71972
+  - GSE108643
+  - GSE97084
   - measurements_tmp  
   - measurements_1  
   includes:
